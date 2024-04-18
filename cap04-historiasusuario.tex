@@ -1,0 +1,1035 @@
+\chapter{Histórias de Usuário} \label{cha:historiasUsuário}
+
+Neste capítulo serão apresentadas as histórias de usuários definidas para o desenvolvimento deste software. As histórias são descritas de forma detalhada e contextualizada as necessidades, objetivos e requisitos específicos dos usuários em relação ao sistema. Cada história de usuário é uma narrativa curta que descreve uma funcionalidade. As histórias de usuário são uma ferramenta importante para o desenvolvimento ágil de software, pois permitem uma compreensão clara das expectativas dos usuários e fornecem direcionamento para o desenvolvimento incremental e iterativo do aplicativo.
+
+\section{Buscar produto}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcounter{numhistoria}
+\setcounter{numhistoria}{1}
+\newcommand{\nhist}{%
+  \padzeroes[2]{\decimal{numhistoria}}%
+  \stepcounter{numhistoria}%
+}
+
+%\begin{quadro}[hbt!]
+%\centering
+\begin{tabular}{|ll|}
+\hline
+\multicolumn{2}{|c|}{\textbf{UC\nhist - \currentname}}    \\ \hline
+\multicolumn{1}{|l|}{\textbf{Sendo}}     & um usuário \\ \hline
+\multicolumn{1}{|l|}{\textbf{Quero}}     & buscar um produto \\ \hline
+\multicolumn{1}{|l|}{\textbf{Para}}      & encontrar oque tenha melhor preço e localização \\ \hline
+\multicolumn{1}{|l|}{\textbf{Protótipo}} & 
+\begin{minipage}{0.48\textwidth} 
+\begin{figure}[H]
+\caption{\label{fig:label} TELA INICIAL}
+\includegraphics[width=\textwidth]{fig/telas/t_inicial.jpg}
+\footnotesize \centering
+\par FONTE: O Autor (2024)
+\end{figure}
+\end{minipage} \\ \hline
+\end{tabular}
+%\end{quadro}
+
+
+
+\subsection*{\textbf{CRITÉRIOS DE ACEITAÇÃO}}
+
+\begin{enumerate}[leftmargin=2cm]
+    \item Deve permitir inserir o nome do produto.
+    \item Deve definir a localização do usuário por GPS.
+    \item Deve permitir que o usuário logue no sistema.
+    \item Deve permitir que o usuário recupere a senha.
+    \item Deve permitir que o usuário se cadastre.
+    \item Deve buscar os produtos por nome.
+\end{enumerate}
+
+\subsection*{\textbf{CRITÉRIOS DE ACEITAÇÃO - DETALHAMENTO}}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{1. Deve permitir inserir o nome do produto.}} \\ \hline
+\textbf{Dado que} & Usuário está na tela de pesquisa. \\ \hline
+\textbf{Quanto} & Usuário clica no campo "Produto". \\ \hline
+\textbf{Então} & Sistema permite a inserção do nome do produto. (R1)\\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{2. Deve definir a localização do usuário por GPS.}} \\ \hline
+\textbf{Dado que} & Usuário está na tela inicial.\\ \hline
+\textbf{Quanto} & Usuário realiza qualquer requisição. \\ \hline
+\textbf{Então} & Sistema salva a localização do usuário através do ip. \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{3. Deve permitir que o usuário logue no sistema.}} \\ \hline
+\textbf{Dado que} & Usuário está na tela de pesquisa. \\ \hline
+\textbf{Quanto} & Usuário clica no botão "Login". \\ \hline
+\textbf{Então} & Sistema redireciona para a tela de login. \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{4. Deve permitir que o usuário recupere a senha.}} \\ \hline
+\textbf{Dado que} & Usuário está na tela de pesquisa. \\ \hline
+\textbf{Quanto} & Usuário lica no botão "Esqueci minha senha". \\ \hline
+\textbf{Então} & Sistema redireciona para a tela. \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{5. Deve permitir que o usuário se cadastre.}} \\ \hline
+\textbf{Dado que} & Usuário está na tela de pesquisa. \\ \hline
+\textbf{Quanto} &  Usuário clica no botão "Criar conta". \\ \hline
+\textbf{Então} & Sistema redireciona para a tela de cadastro. \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{6. Deve buscar os produtos por nome.}} \\ \hline
+\textbf{Dado que} & Usuário inseriu o nome de um produto. (R1) \\ \hline
+\textbf{Quanto} & Usuário clica em "Pesquisar". \\ \hline
+\textbf{Então} & Sistema redireciona para a tela com os produtos buscados. \\ \hline
+\end{tabularx}
+
+\subsection*{\textbf{REGRAS DE NEGÓCIO DA HISTÓRIA}}
+
+\begin{itemize}
+    \item[] R1 - Tamanho máximo do texto 256 caracteres.
+\end{itemize}
+
+\section{Visualizar produtos}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{tabular}{|ll|}
+\hline
+\multicolumn{2}{|c|}{\textbf{UC\nhist - \currentname}}    \\ \hline
+\multicolumn{1}{|l|}{\textbf{Sendo}}     & um usuário \\ \hline
+\multicolumn{1}{|l|}{\textbf{Quero}}     & visualizar os produtos buscados\\ \hline
+\multicolumn{1}{|l|}{\textbf{Para}}      & selecionar oque tenha melhor preço e localização \\ \hline
+\multicolumn{1}{|l|}{\textbf{Protótipo}} & 
+\begin{minipage}{0.48\textwidth} 
+\begin{figure}[H]
+\caption{\label{fig:label} TELA VISUALIZAR PRODUTOS}
+\includegraphics[width=\textwidth]{fig/telas/t_listarprod.jpg}
+\footnotesize \centering
+\par FONTE: O Autor (2024)
+\end{figure}
+\end{minipage}
+ \\ \hline
+\end{tabular}
+
+\subsection*{\textbf{CRITÉRIOS DE ACEITAÇÃO}}
+
+\begin{enumerate}[leftmargin=2cm]
+    \item Deve listar os produtos buscados.
+    \item Deve permitir fazer uma nova busca.
+    \item Deve permitir selecionar um produto na lista para mostrar mais detalhes.
+    \item Deve permitir visualizar os produtos por mapa.
+    \item Deve permitir filtrar a busca.
+\end{enumerate}
+
+\subsection*{\textbf{CRITÉRIOS DE ACEITAÇÃO - DETALHAMENTO}}
+%\textbf{Critério de contexto} (Válido como premissa para todos os critérios):
+
+%\begin{tabular}{@{}l l }
+% \textbf{Dado que} & blabla \\ 
+% \textbf{E} & blabla
+%\end{tabular}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{1. Deve listar os produtos buscados.}} \\ \hline
+\textbf{Dado que} & Usuário pesquisou um produto valido. (R1)  \\ \hline
+\textbf{Quanto} & Sistema carrega a tela. \\ \hline
+\textbf{Então} & Sistema apresenta a lista dos produtos encontrados.  \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{2. Deve permitir fazer uma nova busca.}} \\ \hline
+\textbf{Dado que} & Usuário inseriu o nome de um produto. (R2) \\ \hline
+\textbf{Quanto} & Usuário clica em "Buscar". \\ \hline
+\textbf{Então} & Sistema carrega nova lista. \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{\makecell[l]{3. Deve permitir selecionar um produto na lista para mostrar mais \\detalhes.}}} \\ \\
+\hline \textbf{Dado que} & Sistema carregou ao menos 1 produto. (R1) \\ \hline
+\textbf{Quanto} & Usuário clica em um produto. \\ \hline
+\textbf{Então} & Sistema redireciona para tela de detalhe. \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{4. Deve permitir visualizar os produtos por mapa.}} \\ \hline
+\textbf{Dado que} & Sistema carregou ao menos 1 produto. (R1) \\ \hline
+\textbf{Quanto} & Usuário clica no ícone de mapa de um produto. \\ \hline
+\textbf{Então} & Sistema apresenta a visualização por mapa. \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{5. Deve permitir filtrar a busca.}} \\ \hline
+\textbf{Dado que} & Usuário está na tela de listagem. \\ \hline
+\textbf{Quanto} & Usuário clica no ícone de filtro. \\ \hline
+\textbf{Então} & Sistema apresenta as opções de filtragem. \\ \hline
+\end{tabularx}
+
+\subsection*{\textbf{REGRAS DE NEGÓCIO DA HISTÓRIA}}
+
+\begin{itemize}
+    \item[] R1 - Produto cadastrado no banco de dados.
+    \item[] R2 - Tamanho máximo do texto 256 caracteres.
+\end{itemize}
+
+\section{Visualizar mapa}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{tabular}{|ll|}
+\hline
+\multicolumn{2}{|c|}{\textbf{UC\nhist - \currentname}}    \\ \hline
+\multicolumn{1}{|l|}{\textbf{Sendo}}     & um usuário \\ \hline
+\multicolumn{1}{|l|}{\textbf{Quero}}     & visualizar os produtos buscados no mapa\\ \hline
+\multicolumn{1}{|l|}{\textbf{Para}}      & verificar no mapa a localização do estabelecimento\\ \hline
+\multicolumn{1}{|l|}{\textbf{Protótipo}} & 
+\begin{minipage}{0.48\textwidth} 
+\begin{figure}[H]
+\caption{\label{fig:label} TELA MAPA}
+\includegraphics[width=\textwidth]{fig/telas/t_mapa.png}
+\footnotesize \centering
+\par FONTE: O Autor (2024)
+\end{figure}
+\end{minipage}
+ \\ \hline
+\end{tabular}
+
+\subsection*{\textbf{CRITÉRIOS DE ACEITAÇÃO}}
+
+\begin{enumerate}[leftmargin=2cm]
+    \item Deve definir a localização do usuário por GPS.
+    \item Deve mostrar os produtos buscados em suas respectivas localizações no mapa.
+    \item Deve permitir fazer uma nova busca.
+    \item Deve permitir selecionar uma localização no mapa para mostrar mais detalhes.
+\end{enumerate}
+
+\subsection*{\textbf{CRITÉRIOS DE ACEITAÇÃO - DETALHAMENTO}}
+
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{1. Deve definir a localização do usuário por GPS.}} \\ \hline
+\textbf{Dado que} & Usuário selecionou um produto. \\ \hline
+\textbf{Quanto} & Sistema apresenta visualização por mapa. \\ \hline
+\textbf{Então} & Sistema salva localização do usuário por ip. \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{\makecell[l]{2. Deve mostrar os produtos buscados em suas respectivas \\localizações no mapa.}}} \\ \hline
+\textbf{Dado que} & Usuário selecionou um produto. \\ \hline
+\textbf{Quanto} & Usuário está na tela do mapa. \\ \hline
+\textbf{Então} & Sistema mostra os produtos em seus respectivos locais no mapa. \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{3. Deve permitir fazer uma nova busca}} \\ \hline
+\textbf{Dado que} & Usuário inseriu o nome de um produto. (R2)\\ \hline
+\textbf{Quanto} & Usuário clica em "Buscar". \\ \hline
+\textbf{Então} & Sistema redireciona para tela de listagem. \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{\makecell[l]{4. Deve permitir selecionar uma localização no mapa para mostrar \\mais detalhes.}}} \\ \hline
+\textbf{Dado que} & Sistema encontrou 1 produto. (R1) \\ \hline
+\textbf{Quanto} & Usuário seleciona um produto no mapa. \\ \hline
+\textbf{Então} & Sistema redireciona para tela de detalhe. \\ \hline
+\end{tabularx}
+
+\subsection*{\textbf{REGRAS DE NEGÓCIO DA HISTÓRIA}}
+
+\begin{itemize}
+    \item[] R1 - Produto cadastrado no banco de dados.
+    \item[] R2 - Tamanho máximo do texto 256 caracteres.
+\end{itemize}
+
+
+\section{Filtrar busca produtos}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{tabular}{|ll|}
+\hline
+\multicolumn{2}{|c|}{\textbf{UC\nhist - \currentname}}    \\ \hline
+\multicolumn{1}{|l|}{\textbf{Sendo}}     & um usuário \\ \hline
+\multicolumn{1}{|l|}{\textbf{Quero}}     & filtrar a minha busca\\ \hline
+\multicolumn{1}{|l|}{\textbf{Para}}      & encontrar um produto especificando os parâmetros da busca\\ \hline
+\multicolumn{1}{|l|}{\textbf{Protótipo}} & 
+\begin{minipage}{0.48\textwidth} 
+\begin{figure}[H]
+\caption{\label{fig:label} TELA FILTRAR BUSCA}
+\includegraphics[width=\textwidth]{fig/telas/t_filtros.jpg}
+\footnotesize \centering
+\par FONTE: O Autor (2024)
+\end{figure}
+\end{minipage}
+ \\ \hline
+\end{tabular}
+
+\subsection*{\textbf{CRITÉRIOS DE ACEITAÇÃO}}
+
+\begin{enumerate}[leftmargin=2cm]
+    \item Deve permitir inserir o nome do produto.
+    \item Deve permitir especificar a distância máxima.
+    \item Deve permitir especificar o preço mínimo e máximo.
+    \item Deve permitir especificar a localização do produto.
+\end{enumerate}
+
+\subsection*{\textbf{CRITÉRIOS DE ACEITAÇÃO - DETALHAMENTO}}
+
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{1. Deve permitir inserir o nome do produto.}} \\ \hline
+\textbf{Dado que} & Usuário clicou no ícone de filtro. \\ \hline
+\textbf{Quanto} & Usuário clica no campo "Produto". \\ \hline
+\textbf{Então} & Sistema permite inserir nome de um produto. (R1)\\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{2. Deve permitir especificar a distância máxima.}} \\ \hline
+\textbf{Dado que} & Usuário clicou no ícone de filtro. \\ \hline
+\textbf{Quanto} & Usuário clica no campo "Distância". \\ \hline
+\textbf{Então} & Sistema permite inserir distância. (R2) \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{3. Deve permitir especificar o preço mínimo e máximo.}} \\ \hline
+\textbf{Dado que} & Usuário clicou no ícone de filtro. \\ \hline
+\textbf{Quanto} & Usuário clica no campo "Preço". \\ \hline
+\textbf{Então} & Sistema permite inserir preço mínimo e máximo. (R3) \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{4. Deve permitir especificar a localização do produto.}} \\ \hline
+\textbf{Dado que} & Usuário clicou no ícone de filtro  \\ \hline
+\textbf{Quanto} & Usuário clica no campo "Localização". \\ \hline
+\textbf{Então} & Sistema permite inserir localização. (R4) \\ \hline
+\end{tabularx}
+
+\subsection*{\textbf{REGRAS DE NEGÓCIO DA HISTÓRIA}}
+
+\begin{itemize}
+    \item[] R1 - Tamanho máximo do texto 256 caracteres.
+    \item[] R2 - Distância mínima 1km, distância máxima 15km.
+    \item[] R3 - Preço mínimo 0, preço máximo 999,999.
+    \item[] R4 - CEP válido ou localização no mapa.
+\end{itemize}
+
+
+
+\section{Detalhes produto}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{tabular}{|ll|}
+\hline
+\multicolumn{2}{|c|}{\textbf{UC\nhist - \currentname}}    \\ \hline
+\multicolumn{1}{|l|}{\textbf{Sendo}}     & um usuário \\ \hline
+\multicolumn{1}{|l|}{\textbf{Quero}}     & visualizar os detalhes do produto\\ \hline
+\multicolumn{1}{|l|}{\textbf{Para}}      & analisar a localização e preço do produto\\ \hline
+\multicolumn{1}{|l|}{\textbf{Protótipo}} & 
+\begin{minipage}{0.48\textwidth} 
+\begin{figure}[H]
+\caption{\label{fig:label} TELA DETALHES PRODUTO}
+\includegraphics[width=\textwidth]{fig/telas/t_produto.jpg}
+\footnotesize \centering
+\par FONTE: O Autor (2024)
+\end{figure}
+\end{minipage}
+ \\ \hline
+\end{tabular}
+
+\subsection*{\textbf{CRITÉRIOS DE ACEITAÇÃO}}
+
+\begin{enumerate}[leftmargin=2cm]
+    \item Deve mostrar as informações do produto como: foto, nome, estabelecimento, preço e localização.
+    \item Deve mostrar outros estabelecimentos com o mesmo produto ordenado por distância.
+    \item Deve permitir mostrar o estabelecimento no mapa.
+    \item Deve permitir sugerir um novo preço para o produto no estabelecimento.
+\end{enumerate}
+
+\subsection*{\textbf{CRITÉRIOS DE ACEITAÇÃO - DETALHAMENTO}}
+\textbf{Critério de contexto} (Válido como premissa para todos os critérios):
+
+\begin{tabularx}{0.9\textwidth}{@{}l X }
+ \textbf{Dado que} & Sistema buscou ao menos 1 produto. \\ 
+ \textbf{E} & Usuário clicou em 1 produto.
+\end{tabularx}
+
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{\makecell[l]{1. Deve mostrar as informações do produto como: foto, nome, \\estabelecimento, preço e localização.}}} \\ \hline
+\textbf{Dado que} & Usuário está na tela de detalhe. \\ \hline
+\textbf{Quanto} & Sistema carrega informações do produto. \\ \hline
+\textbf{Então} & Sistema apresenta informações do produto. \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{\makecell[l]{2. Deve mostrar outros estabelecimentos com o mesmo produto \\ordenado por distância.}}} \\ \hline
+\textbf{Dado que} & Usuário está na tela de detalhe. \\ \hline
+\textbf{Quanto} & Sistema carrega informações do produto. \\ \hline
+\textbf{Então} & Sistema apresenta outras lojas com o mesmo produto. \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{3. Deve permitir mostrar o estabelecimento no mapa.}} \\ \hline
+\textbf{Dado que} & Usuário está na tela de detalhe. \\ \hline
+\textbf{Quanto} & Usuário clica no ícone do mapa. \\ \hline
+\textbf{Então} & Sistema apresenta a localização do produto no mapa. \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{\makecell[l]{4. Deve permitir sugerir um novo preço para o produto no \\estabelecimento.}}} \\ \hline
+\textbf{Dado que} & Usuário está na tela de detalhe. \\ \hline
+\textbf{Quanto} & Usuário clica no botão de sugestão. \\ \hline
+\textbf{Então} & Sistema apresenta formulário de sugestão de preço. \\ \hline
+\end{tabularx}
+
+
+\section{Sugerir edição}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{tabular}{|ll|}
+\hline
+\multicolumn{2}{|c|}{\textbf{UC\nhist - \currentname}}    \\ \hline
+\multicolumn{1}{|l|}{\textbf{Sendo}}     & um usuário \\ \hline
+\multicolumn{1}{|l|}{\textbf{Quero}}     & sugerir a edição de preço de um produto\\ \hline
+\multicolumn{1}{|l|}{\textbf{Para}}      & para que o produto apareça com o novo preço atualizado\\ \hline
+\multicolumn{1}{|l|}{\textbf{Protótipo}} & 
+\begin{minipage}{0.48\textwidth} 
+\begin{figure}[H]
+\caption{\label{fig:label} TELA SUGERIR EDIÇÃO}
+\includegraphics[width=\textwidth]{fig/telas/t_sugerir.jpg}
+\footnotesize \centering
+\par FONTE: O Autor (2024)
+\end{figure}
+\end{minipage}
+ \\ \hline
+\end{tabular}
+
+\subsection*{\textbf{CRITÉRIOS DE ACEITAÇÃO}}
+
+\begin{enumerate}[leftmargin=2cm]
+    \item Deve mostrar as informações do produto.
+    \item Deve permitir inserir um novo preço.
+    \item Deve permitir sugerir um novo preço.
+\end{enumerate}
+
+\subsection*{\textbf{CRITÉRIOS DE ACEITAÇÃO - DETALHAMENTO}}
+\textbf{Critério de contexto} (Válido como premissa para todos os critérios):
+
+\begin{tabularx}{0.9\textwidth}{@{}l X }
+\textbf{Dado que} & Sistema buscou ao menos 1 produto.\\ 
+\textbf{E} & Usuário clicou em 1 produto.\\
+\textbf{E} & Usuário clicou no botão de sugestão.
+\end{tabularx}
+
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{1. Deve mostrar as informações do produto.}} \\ \hline
+\textbf{Dado que} & Usuário está na tela de sugestão. \\ \hline
+\textbf{Quanto} & Sistema carrega informações do produto. \\ \hline
+\textbf{Então} & Sistema apresenta informações atuais do produto. \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{2. Deve permitir inserir um novo preço.}} \\ \hline
+\textbf{Dado que} & Usuário está na tela de sugestão. \\ \hline
+\textbf{Quanto} & Usuário clica no campo "Novo preço". \\ \hline
+\textbf{Então} & Sistema permite inserir novo preço. (R1) \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{3. Deve permitir sugerir um novo preço.}} \\ \hline
+\textbf{Dado que} & Usuário inseriu preço válido. (R1) \\ \hline
+\textbf{Quanto} & Usuário clica no botão "Editar". \\ \hline
+\textbf{Então} & Sistema cadastra nova sugestão. \\ \hline
+\end{tabularx}
+
+\subsection*{\textbf{REGRAS DE NEGÓCIO DA HISTÓRIA}}
+
+\begin{itemize}
+    \item[] R1 - Preço mínimo 0, preço máximo 999,999.
+\end{itemize}
+
+
+\section{Avaliar sugestão}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{tabular}{|ll|}
+\hline
+\multicolumn{2}{|c|}{\textbf{UC\nhist - \currentname}}    \\ \hline
+\multicolumn{1}{|l|}{\textbf{Sendo}}     & um usuário \\ \hline
+\multicolumn{1}{|l|}{\textbf{Quero}}     & avaliar uma sugestão de novo preço\\ \hline
+\multicolumn{1}{|l|}{\textbf{Para}}      & para que o produto fique com o preço atualizado\\ \hline
+\multicolumn{1}{|l|}{\textbf{Protótipo}} & 
+\begin{minipage}{0.48\textwidth} 
+\begin{figure}[H]
+\caption{\label{fig:label} TELA AVALIAR SUGESTÃO}
+\includegraphics[width=\textwidth]{fig/telas/t_avaliar.jpg}
+\footnotesize \centering
+\par FONTE: O Autor (2024)
+\end{figure}
+\end{minipage}
+ \\ \hline
+\end{tabular}
+
+\subsection*{\textbf{CRITÉRIOS DE ACEITAÇÃO}}
+
+\begin{enumerate}[leftmargin=2cm]
+    \item Deve mostrar as informações do produto atual e o novo preço sugerido.
+    \item Deve permitir avaliar a sugestão com um positivo ou negativo.
+    \item Deve atualizar o preço do produto se maioria das avaliações forem positivas.
+\end{enumerate}
+
+\subsection*{\textbf{CRITÉRIOS DE ACEITAÇÃO - DETALHAMENTO}}
+\textbf{Critério de contexto} (Válido como premissa para todos os critérios):
+
+\begin{tabularx}{0.9\textwidth}{@{}l X }
+\textbf{Dado que} & Sistema buscou ao menos 1 produto. \\ 
+\textbf{E} & Usuário clicou em 1 produto.
+\end{tabularx}
+
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{\makecell[l]{1. Deve mostrar as informações do produto atual e o novo preço \\sugerido.}}} \\ \hline
+\textbf{Dado que} & Usuário está na tela de avaliação. \\ \hline
+\textbf{Quanto} & Sistema carrega informações do produto. \\ \hline
+\textbf{Então} & Sistema apresenta informações da sugestão. \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{2. Deve permitir avaliar a sugestão com um positivo ou negativo.}} \\ \hline
+\textbf{Dado que} & Usuário está na tela de avaliação. \\ \hline
+\textbf{Quanto} & Usuário avalia uma sugestão. \\ \hline
+\textbf{Então} & Sistema atualiza números de avaliações. \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{\makecell[l]{3. Deve atualizar o preço do produto se maioria das avaliações forem \\positivas.}}} \\ \hline
+\textbf{Dado que} & Usuário está na tela de avaliação.  \\ \hline
+\textbf{Quanto} & Usuário avalia uma sugestão. \\ \hline
+\textbf{Então} & Sistema atualiza preço do produto. (R1) \\ \hline
+\end{tabularx}
+
+\subsection*{\textbf{REGRAS DE NEGÓCIO DA HISTÓRIA}}
+
+\begin{itemize}
+    \item[] R1 - Mais de 75\% das avaliações positivas.
+\end{itemize}
+
+
+\section{Cadastrar produto}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{tabular}{|ll|}
+\hline
+\multicolumn{2}{|c|}{\textbf{UC\nhist - \currentname}}    \\ \hline
+\multicolumn{1}{|l|}{\textbf{Sendo}}     & um usuário \\ \hline
+\multicolumn{1}{|l|}{\textbf{Quero}}     & cadastrar um novo produto\\ \hline
+\multicolumn{1}{|l|}{\textbf{Para}}      & para que o produto apareça no sistema\\ \hline
+\multicolumn{1}{|l|}{\textbf{Protótipo}} & 
+\begin{minipage}{0.48\textwidth} 
+\begin{figure}[H]
+\caption{\label{fig:label} TELA CADASTRAR PRODUTO}
+\includegraphics[width=\textwidth]{fig/telas/t_novproduto.jpg}
+\footnotesize \centering
+\par FONTE: O Autor (2024)
+\end{figure}
+\end{minipage}
+ \\ \hline
+\end{tabular}
+
+\subsection*{\textbf{CRITÉRIOS DE ACEITAÇÃO}}
+
+\begin{enumerate}[leftmargin=2cm]
+    \item Deve permitir inserir o nome do produto, estabelecimento e preço do produto.
+    \item Deve cadastrar o produto.
+    \item Deve criar uma sugestão de novo preço pro produto caso já esteja cadastrado.
+\end{enumerate}
+
+\subsection*{\textbf{CRITÉRIOS DE ACEITAÇÃO - DETALHAMENTO}}
+\textbf{Critério de contexto} (Válido como premissa para todos os critérios):
+
+\begin{tabularx}{0.9\textwidth}{@{}l X }
+ \textbf{Dado que} & Usuário esta logado \\ 
+ \textbf{E} & Clicou no botão "Cadastrar produto".
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{\makecell[l]{1. Deve permitir inserir o nome do produto, estabelecimento e \\preço do produto.}}} \\ \hline
+\textbf{Dado que} & Usuário na tela de cadastro. \\ \hline
+\textbf{Quanto} & Usuário clica em algum campo. \\ \hline
+\textbf{Então} & Sistema permite edição. \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{2. Deve cadastrar o produto.}} \\ \hline
+\textbf{Dado que} & Usuário inseriu dados corretamente. (R1) (R2) \\ \hline
+\textbf{Quanto} & Usuário clica no botão "Cadastrar". \\ \hline
+\textbf{Então} & Sistema cadastra produto. \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{\makecell[l]{3. Deve criar uma sugestão de novo preço pro produto caso já esteja \\cadastrado.}}} \\ \hline
+\textbf{Dado que} & Usuário inseriu dados corretamente. (R1) (R2) \\ \hline
+\textbf{Quanto} & Produto já cadastrado no estabelecimento. \\ \hline
+\textbf{Então} & Sistema cadastra sugestão de preço. \\ \hline
+\end{tabularx}
+
+\subsection*{\textbf{REGRAS DE NEGÓCIO DA HISTÓRIA}}
+
+\begin{itemize}
+    \item[] R1 - Localização correta no mapa.
+    \item[] R2 - Preço mínimo 0, preço máximo 999,999.
+\end{itemize}
+
+
+\section{Digitalizar nota}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{tabular}{|ll|}
+\hline
+\multicolumn{2}{|c|}{\textbf{UC\nhist - \currentname}}    \\ \hline
+\multicolumn{1}{|l|}{\textbf{Sendo}}     & um usuário \\ \hline
+\multicolumn{1}{|l|}{\textbf{Quero}}     & digitalizar uma nota\\ \hline
+\multicolumn{1}{|l|}{\textbf{Para}}      & para inserir automaticamente os produtos no sistema\\ \hline
+\multicolumn{1}{|l|}{\textbf{Protótipo}} & 
+\begin{minipage}{0.48\textwidth} 
+\begin{figure}[H]
+\caption{\label{fig:label} TELA DIGITALIZAR}
+\includegraphics[width=\textwidth]{fig/telas/t_digitaliza.jpg}
+\footnotesize \centering
+\par FONTE: O Autor (2024)
+\end{figure}
+\end{minipage}
+ \\ \hline
+\end{tabular}
+
+\subsection*{\textbf{CRITÉRIOS DE ACEITAÇÃO}}
+
+\begin{enumerate}[leftmargin=2cm]
+    \item Deve permitir tirar uma foto de uma nota fiscal.
+    \item Deve digitalizar os itens da nota em texto.
+\end{enumerate}
+
+\subsection*{\textbf{CRITÉRIOS DE ACEITAÇÃO - DETALHAMENTO}}
+\textbf{Critério de contexto} (Válido como premissa para todos os critérios):
+
+\begin{tabularx}{0.9\textwidth}{@{}l X }
+\textbf{Dado que} & Usuário esta logado \\ 
+\textbf{E} & Clicou no botão "Cadastrar produto".\\
+\textbf{E} & Clicou no ícone de nota fiscal.
+\end{tabularx}
+
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{1. Deve permitir tirar uma foto de uma nota fiscal.}} \\ \hline
+\textbf{Dado que} & Usuário está na tela de nota fiscal. \\ \hline
+\textbf{Quanto} & Usuário clica no ícone de camera. \\ \hline
+\textbf{Então} & Sistema permite escanear uma foto. \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{2. Deve digitalizar os itens da nota em texto.}} \\ \hline
+\textbf{Dado que} & Usuário escaneou nota corretamente. (R1) \\ \hline
+\textbf{Quanto} & Usuário clica no ícone de camera. \\ \hline
+\textbf{Então} & Sistema redireciona para tela de confirmação. \\ \hline
+\end{tabularx}
+
+\subsection*{\textbf{REGRAS DE NEGÓCIO DA HISTÓRIA}}
+
+\begin{itemize}
+    \item[] R1 - QR Code da nota fiscal encontrada.
+\end{itemize}
+
+\section{Confirmar digitalização}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{tabular}{|ll|}
+\hline
+\multicolumn{2}{|c|}{\textbf{UC\nhist - \currentname}}    \\ \hline
+\multicolumn{1}{|l|}{\textbf{Sendo}}     & um usuário \\ \hline
+\multicolumn{1}{|l|}{\textbf{Quero}}     & confirmar a digitalização\\ \hline
+\multicolumn{1}{|l|}{\textbf{Para}}      & para corrigir eventuais erros inseridos pelo sistema\\ \hline
+\multicolumn{1}{|l|}{\textbf{Protótipo}} & 
+\begin{minipage}{0.48\textwidth} 
+\begin{figure}[H]
+\caption{\label{fig:label} TELA DIGITALIZAÇÃO}
+\includegraphics[width=\textwidth]{fig/telas/t_confdigitaliza.jpg}
+\footnotesize \centering
+\par FONTE: O Autor (2024)
+\end{figure}
+\end{minipage}
+ \\ \hline
+\end{tabular}
+
+\subsection*{\textbf{CRITÉRIOS DE ACEITAÇÃO}}
+
+\begin{enumerate}[leftmargin=2cm]
+    \item Deve permitir inserir o estabelecimento da nota.
+    \item Deve permitir alterar os produtos digitalizados pelo sistema.
+    \item Deve permitir adicionar mais produtos.
+    \item Deve cadastrar os produtos.
+    \item Deve criar uma sugestão de novo preço pro produto caso já esteja cadastrado.
+\end{enumerate}
+
+\subsection*{\textbf{CRITÉRIOS DE ACEITAÇÃO - DETALHAMENTO}}
+\textbf{Critério de contexto} (Válido como premissa para todos os critérios):
+
+\begin{tabularx}{0.9\textwidth}{@{}l X }
+\textbf{Dado que} & Usuário esta logado \\ 
+\textbf{E} & Clicou no botão "Cadastrar produto".\\
+\textbf{E} & Clicou no ícone de nota fiscal.\\
+\textbf{E} & Escaneou uma nota válida.
+\end{tabularx}
+
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{1. Deve permitir inserir o estabelecimento da nota.}} \\ \hline
+\textbf{Dado que} & Usuário está na tela de confirmação. \\ \hline
+\textbf{Quanto} & Usuário clica no campo "Estabelecimento". \\ \hline
+\textbf{Então} & Sistema permite selecionar no mapa a localiação. \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{2. Deve permitir alterar os produtos digitalizados pelo sistema.}} \\ \hline
+\textbf{Dado que} & Usuário está na tela de confirmação. \\ \hline
+\textbf{Quanto} & Usuário clica no ícone de edição. \\ \hline
+\textbf{Então} & Sistema apresenta formulário de edição. \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{3. Deve permitir adicionar mais produtos.}} \\ \hline
+\textbf{Dado que} & Usuário está na tela de confirmação. \\ \hline
+\textbf{Quanto} & Usuário clica no ícone de adição. \\ \hline
+\textbf{Então} & Sistema apresenta formulário de adição. \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{4. Deve cadastrar os produtos.}} \\ \hline
+\textbf{Dado que} & Usuário está na tela de confirmação. \\ \hline
+\textbf{Quanto} & Usuário clica no ícone "Confirmar". \\ \hline
+\textbf{Então} & Sistema cadastra produtos. \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{\makecell[l]{5. Deve criar uma sugestão de novo preço pro produto caso já esteja \\cadastrado.}}} \\ \hline
+\textbf{Dado que} & Usuário clica no ícone "Confirmar".\\ \hline
+\textbf{Quanto} & Produto já cadastrado. \\ \hline
+\textbf{Então} & Sistema cadastra sugestão de novo preço. \\ \hline
+\end{tabularx}
+
+
+\section{Menu perfil}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{tabular}{|ll|}
+\hline
+\multicolumn{2}{|c|}{\textbf{UC\nhist - \currentname}}    \\ \hline
+\multicolumn{1}{|l|}{\textbf{Sendo}}     & um usuário \\ \hline
+\multicolumn{1}{|l|}{\textbf{Quero}}     & visualizar os detalhes do meu perfil\\ \hline
+\multicolumn{1}{|l|}{\textbf{Para}}      & alterar minha senha ou foto\\ \hline
+\multicolumn{1}{|l|}{\textbf{Protótipo}} & 
+\begin{minipage}{0.48\textwidth} 
+\begin{figure}[H]
+\caption{\label{fig:label} TELA PERFIL}
+\includegraphics[width=\textwidth]{fig/telas/t_mperfil.jpg}
+\footnotesize \centering
+\par FONTE: O Autor (2024)
+\end{figure}
+\end{minipage}
+ \\ \hline
+\end{tabular}
+
+\subsection*{\textbf{CRITÉRIOS DE ACEITAÇÃO}}
+
+\begin{enumerate}[leftmargin=2cm]
+    \item Deve mostrar as informações do usuário logado.
+    \item Deve permitir alterar a foto.
+    \item Deve permitir alterar a senha.
+\end{enumerate}
+
+\subsection*{\textbf{CRITÉRIOS DE ACEITAÇÃO - DETALHAMENTO}}
+\textbf{Critério de contexto} (Válido como premissa para todos os critérios):
+
+\begin{tabularx}{0.9\textwidth}{@{}l X }
+ \textbf{Dado que} & Usuário logado. \\ 
+ \textbf{E} & Clicou no menu lateral.
+\end{tabularx}
+
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{1. Deve mostrar as informações do usuário logado.}} \\ \hline
+\textbf{Dado que} & Usuário está na tela de perfil. \\ \hline
+\textbf{Quanto} & Sistema carrega informações do usuário. \\ \hline
+\textbf{Então} & Sistema apresenta informações do usuário. \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{2. Deve permitir alterar a foto.}} \\ \hline
+\textbf{Dado que} & Usuário está na tela de perfil. \\ \hline
+\textbf{Quanto} & Usuário clica no ícone de camera. \\ \hline
+\textbf{Então} & Sistema permite atualizar foto. (R1) \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{3. Deve permitir alterar a senha.}} \\ \hline
+\textbf{Dado que} & Usuário está na tela de perfil. \\ \hline
+\textbf{Quanto} & Usuário clica em "Alterar senha". \\ \hline
+\textbf{Então} & Sistema redireciona para tela de alteração. \\ \hline
+\end{tabularx}
+
+\subsection*{\textbf{REGRAS DE NEGÓCIO DA HISTÓRIA}}
+
+\begin{itemize}
+    \item[] R1 - Tamanho máximo do arquivo 5mb.
+\end{itemize}
+
+
+
+\section{Alterar senha}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{tabular}{|ll|}
+\hline
+\multicolumn{2}{|c|}{\textbf{UC\nhist - \currentname}}    \\ \hline
+\multicolumn{1}{|l|}{\textbf{Sendo}}     & um usuário \\ \hline
+\multicolumn{1}{|l|}{\textbf{Quero}}     & alterar minha senha\\ \hline
+\multicolumn{1}{|l|}{\textbf{Para}}      & alterar minha senha atual para uma nova\\ \hline
+\multicolumn{1}{|l|}{\textbf{Protótipo}} & 
+\begin{minipage}{0.48\textwidth} 
+\begin{figure}[H]
+\caption{\label{fig:label} TELA ALTERAR SENHA}
+\includegraphics[width=\textwidth]{fig/telas/t_altsenha.jpg}
+\footnotesize \centering
+\par FONTE: O Autor (2024)
+\end{figure}
+\end{minipage}
+ \\ \hline
+\end{tabular}
+
+\subsection*{\textbf{CRITÉRIOS DE ACEITAÇÃO}}
+
+\begin{enumerate}[leftmargin=2cm]
+    \item Deve permitir inserir a senha atual e uma nova senha.
+    \item Deve permitir alterar a senha caso a senha atual seja inserida corretamente.
+\end{enumerate}
+
+\subsection*{\textbf{CRITÉRIOS DE ACEITAÇÃO - DETALHAMENTO}}
+\textbf{Critério de contexto} (Válido como premissa para todos os critérios):
+
+\begin{tabularx}{0.9\textwidth}{@{}l X }
+\textbf{Dado que} & Usuário logado. \\ 
+\textbf{E} & Clicou no menu lateral.\\
+\textbf{E} & Clicou em alterar senha.
+\end{tabularx}
+
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{1. Deve permitir inserir a senha atual e uma nova senha.}} \\ \hline
+\textbf{Dado que} & Usuário está na tela de alterar senha. \\ \hline
+\textbf{Quanto} & Usuário clica nos campos de senha. \\ \hline
+\textbf{Então} & Sistema permite inserir dado. \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{\makecell[l]{2. Deve permitir alterar a senha caso a senha atual seja inserida \\corretamente.}}} \\ \hline
+\textbf{Dado que} & Usuário inseriu campos corretamente. (R1) (R2) (R3) \\ \hline
+\textbf{Quanto} & Usuário clicou em "Alterar". \\ \hline
+\textbf{Então} & Sistema atualiza senha do usuário. \\ \hline
+\end{tabularx}
+
+\subsection*{\textbf{REGRAS DE NEGÓCIO DA HISTÓRIA}}
+
+\begin{itemize}
+    \item[] R1 - Senha atual válida.
+    \item[] R2 - Novas e confirmação iguais.
+    \item[] R3 - Tamanho máximo do texto 256 caracteres.
+\end{itemize}
+
+
+
+
+\section{Logar no sistema}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{tabular}{|ll|}
+\hline
+\multicolumn{2}{|c|}{\textbf{UC\nhist - \currentname}}    \\ \hline
+\multicolumn{1}{|l|}{\textbf{Sendo}}     & um usuário \\ \hline
+\multicolumn{1}{|l|}{\textbf{Quero}}     & logar no sistema\\ \hline
+\multicolumn{1}{|l|}{\textbf{Para}}      & poder avaliar e sugerir novos preços para os produtos\\ \hline
+\multicolumn{1}{|l|}{\textbf{Protótipo}} & 
+\begin{minipage}{0.48\textwidth} 
+\begin{figure}[H]
+\caption{\label{fig:label} TELA LOGIN}
+\includegraphics[width=\textwidth]{fig/telas/t_login.jpg}
+\footnotesize \centering
+\par FONTE: O Autor (2024)
+\end{figure}
+\end{minipage}
+ \\ \hline
+\end{tabular}
+
+\subsection*{\textbf{CRITÉRIOS DE ACEITAÇÃO}}
+
+\begin{enumerate}[leftmargin=2cm]
+    \item Deve permitir inserir email e senha.
+    \item Deve permitir fazer cadastro pela conta Google ou Facebook.
+    \item Deve permitir recuperar senha.
+    \item Deve permitir acessar formulário de cadastro.
+    \item Deve permitir logar no sistema.
+\end{enumerate}
+
+\subsection*{\textbf{CRITÉRIOS DE ACEITAÇÃO - DETALHAMENTO}}
+\textbf{Critério de contexto} (Válido como premissa para todos os critérios):
+
+\begin{tabularx}{0.9\textwidth}{@{}l X }
+ \textbf{Dado que} & Usuário clicou no botão "Login". \\ 
+\end{tabularx}
+
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{1. Deve permitir inserir email e senha.}} \\ \hline
+\textbf{Dado que} & Usuário está na tela de login. \\ \hline
+\textbf{Quanto} & Usuário clica nos campos. \\ \hline
+\textbf{Então} & Sistema permite inserir dado. (R1) (R2) \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{2. Deve permitir fazer cadastro pela conta Google ou Facebook.}} \\ \hline
+\textbf{Dado que} & Usuário está na tela de login. \\ \hline
+\textbf{Quanto} & Usuário clica no botão Google ou Facebook \\ \hline
+\textbf{Então} & Sistema redireciona para login externo. \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{3. Deve permitir recuperar senha.}} \\ \hline
+\textbf{Dado que} & Usuário está na tela de login. \\ \hline
+\textbf{Quanto} & Usuário clica em "Esqueci minha senha". \\ \hline
+\textbf{Então} & Sistema redireciona para tela de recuperação. \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{4. Deve permitir acessar formulário de cadastro.}} \\ \hline
+\textbf{Dado que} & Usuário está na tela de login. \\ \hline
+\textbf{Quanto} & Usuário clica em "Criar conta". \\ \hline
+\textbf{Então} & Sistema redireciona para tela de cadastro. \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{5. Deve permitir logar no sistema.}} \\ \hline
+\textbf{Dado que} & Usuário inseriu credenciais corretas. (R3) \\ \hline
+\textbf{Quanto} & Usuário clica em "Entrar". \\ \hline
+\textbf{Então} & Sistema autentica usuário e redireciona para tela inicial. \\ \hline
+\end{tabularx}
+
+\subsection*{\textbf{REGRAS DE NEGÓCIO DA HISTÓRIA}}
+
+\begin{itemize}
+    \item[] R1 - Tamanho maximo do texto 256 caracteres.
+    \item[] R2 - Email válido.
+    \item[] R3 - Usuário cadastrado no banco de dados.
+\end{itemize}
+
+\section{Criar conta}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{tabular}{|ll|}
+\hline
+\multicolumn{2}{|c|}{\textbf{UC\nhist - \currentname}}    \\ \hline
+\multicolumn{1}{|l|}{\textbf{Sendo}}     & um usuário \\ \hline
+\multicolumn{1}{|l|}{\textbf{Quero}}     & cadastrar no sistema\\ \hline
+\multicolumn{1}{|l|}{\textbf{Para}}      & criar uma conta para logar no sistema\\ \hline
+\multicolumn{1}{|l|}{\textbf{Protótipo}} & 
+\begin{minipage}{0.48\textwidth} 
+\begin{figure}[H]
+\caption{\label{fig:label} TELA CADASTRO}
+\includegraphics[width=\textwidth]{fig/telas/t_cadastro.jpg}
+\footnotesize \centering
+\par FONTE: O Autor (2024)
+\end{figure}
+\end{minipage}
+ \\ \hline
+\end{tabular}
+
+\subsection*{\textbf{CRITÉRIOS DE ACEITAÇÃO}}
+
+\begin{enumerate}[leftmargin=2cm]
+    \item Deve permitir inserir email, nome e senha.
+    \item Deve fazer cadastro no sistema.
+\end{enumerate}
+
+\subsection*{\textbf{CRITÉRIOS DE ACEITAÇÃO - DETALHAMENTO}}
+\textbf{Critério de contexto} (Válido como premissa para todos os critérios):
+
+\begin{tabularx}{0.9\textwidth}{@{}l X }
+\textbf{Dado que} & Usuário clicou no botão "Criar conta". \\ 
+\end{tabularx}
+
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{1. Deve permitir inserir email, nome e senha.}} \\ \hline
+\textbf{Dado que} & Usuário está na tela de cadastro. \\ \hline
+\textbf{Quanto} & Usuário clica nos campos. \\ \hline
+\textbf{Então} & Sistema permite inserir dado. \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{2. Deve fazer cadastro no sistema.}} \\ \hline
+\textbf{Dado que} & Usuário preencheu corretamente. (R1) (R2) (R3) (R4) \\ \hline
+\textbf{Quanto} & Usuário clica em "Cadastrar". \\ \hline
+\textbf{Então} & Sistema cadastra novo usuário. \\ \hline
+\end{tabularx}
+
+\subsection*{\textbf{REGRAS DE NEGÓCIO DA HISTÓRIA}}
+
+\begin{itemize}
+    \item[] R1 - Email válido.
+    \item[] R2 - Tamanho máximo do texto 256 caracteres.
+    \item[] R3 - Senha e confirmação iguais.
+    \item[] R4 - Usuário ainda não cadastrado.
+\end{itemize}
+
+
+\section{Recuperar senha}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{tabular}{|ll|}
+\hline
+\multicolumn{2}{|c|}{\textbf{UC\nhist - \currentname}}    \\ \hline
+\multicolumn{1}{|l|}{\textbf{Sendo}}     & um usuário \\ \hline
+\multicolumn{1}{|l|}{\textbf{Quero}}     & recuperar minha senha\\ \hline
+\multicolumn{1}{|l|}{\textbf{Para}}      & acessar o sistema\\ \hline
+\multicolumn{1}{|l|}{\textbf{Protótipo}} & 
+\begin{minipage}{0.48\textwidth} 
+\begin{figure}[H]
+\caption{\label{fig:label} TELA RECUPERAR SENHA}
+\includegraphics[width=\textwidth]{fig/telas/t_esqueci.jpg}
+\footnotesize \centering
+\par FONTE: O Autor (2024)
+\end{figure}
+\end{minipage}
+ \\ \hline
+\end{tabular}
+
+\subsection*{\textbf{CRITÉRIOS DE ACEITAÇÃO}}
+
+\begin{enumerate}[leftmargin=2cm]
+    \item Deve permitir inserir email.
+    \item Deve enviar nova senha gerada aleatoriamente para o email cadastrado.
+\end{enumerate}
+
+\subsection*{\textbf{CRITÉRIOS DE ACEITAÇÃO - DETALHAMENTO}}
+\textbf{Critério de contexto} (Válido como premissa para todos os critérios):
+
+\begin{tabularx}{0.9\textwidth}{@{}l X }
+\textbf{Dado que} & Usuário clicou no botão "Esqueci minha senha". \\ 
+\end{tabularx}
+
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{1. Deve permitir inserir email.}} \\ \hline
+\textbf{Dado que} & Usuário está na tela de recuperação. \\ \hline
+\textbf{Quanto} & Usuário clica no campo "Email". \\ \hline
+\textbf{Então} & Sistema permite inserir email. \\ \hline
+\end{tabularx}
+
+\begin{tabularx}{0.9\textwidth}{|l|X|}
+\multicolumn{2}{@{}l}{\textbf{\makecell[l]{2. Deve enviar nova senha gerada aleatoriamente para o email \\cadastrado.}}} \\ \hline
+\textbf{Dado que} & Usuário preencheu corretamente. (R1) (R2) \\ \hline
+\textbf{Quanto} & Usuário clica em "Recuperar". \\ \hline
+\textbf{Então} & Sistema envia email com nova senha aleatória. \\ \hline
+\end{tabularx}
+
+\subsection*{\textbf{REGRAS DE NEGÓCIO DA HISTÓRIA}}
+
+\begin{itemize}
+    \item[] R1 - Email válido.
+    \item[] R2 - Usuário cadastrado.
+\end{itemize}

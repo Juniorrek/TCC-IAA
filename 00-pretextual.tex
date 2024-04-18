@@ -85,6 +85,36 @@
  \end{otherlanguage*}
 \end{resumo}
 
+
+% resumo em francês 
+\ifthenelse{\equal{\Resume}{}}
+{}
+{
+ \begin{resumo}[RESUME]%Résumé
+  \begin{otherlanguage*}{french}
+     \Resume
+     
+     %\vspace{\onelineskip}
+     \noindent      
+     \textbf{Mots clés}: \Motscles
+  \end{otherlanguage*}
+ \end{resumo}
+} 
+
+% resumo em espanhol
+\ifthenelse{\equal{\Resume}{}}{}
+{ \begin{resumo}[RESUMEN]
+  \begin{otherlanguage*}{spanish}
+    \Resumen 
+   
+   %\vspace{\onelineskip}
+   \noindent    
+    \textbf{Palabras clave}: \Palabrasclave
+  \end{otherlanguage*}
+ \end{resumo}
+}
+}{}
+
 % inserir lista de ilustrações
 % ----------------------------------------------------------
 \ifthenelse{\equal{\terListaFiguras}{Sim}}{

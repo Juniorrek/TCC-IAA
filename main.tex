@@ -26,11 +26,12 @@
 %%
 %% This work consists of the files 
 % 
-%          main.tex   programa principal
-%      00-dados.tex   entrada de dados 
-%    00-pacotes.tex   pacotes carregados no modelo
-% 00-pretextual.tex   processamento dos elementos pre-textuais
-%          UFPR.sty   ajusta do modelo canonico às normas  UFPR
+%              main.tex   programa principal
+%          00-dados.tex   entrada de dados 
+%          00-pacotes.tex   pacotes carregados no modelo
+% 00-pacotesOpcionais.tex   pacotes opcionais
+      % 00-pretextual.tex   processamento dos elementos pre-textuais
+%                UFPR.sty   ajusta do modelo canonico às normas  UFPR
 %
 %    referencias.bib
 %                     e outras arquivos de imagens
@@ -44,7 +45,7 @@
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 %
-% DATA DE ATUALIZAÇÃO: 2020-06-10
+% DATA DE ATUALIZAÇÃO: 2025-05-27
 
 \documentclass[
         % -- opções da classe memoir --
@@ -70,6 +71,7 @@
 
 \usepackage{UFPR}
 \input{00-pacotes}
+\input{00-pacotesOpcionais}
 \input{00-dados}
 
 % compila o indice
@@ -91,10 +93,9 @@
 \renewcommand{\figurename}{FIGURA }
 \renewcommand{\figureautorefname}{FIGURA}
 \renewcommand{\tableautorefname}{TABELA}
-\newcommand{\equationname}{EQUA\c{C}\~AO~}
-\renewcommand{\equationautorefname}{EQUA\c{C}\~AO~}
-
-\renewcommand*{\mkbibnamefamily}[1]{\MakeUppercase{#1}}
+\newcommand{\equationname}{equa\c{c}\~ao~}
+\renewcommand{\equationautorefname}{equa\c{c}\~ao~}
+\newcommand{\quadroautorefname}{QUADRO~}
 
 % Para ajustar o tamanho da fonte do número da primeira página do capítulo
 \aliaspagestyle{chapter}{chapfirst}% customizing chapter pagestyle
@@ -110,35 +111,25 @@
 % sugerido por Youssef Cherem 20170316
 % https://mail.google.com/mail/u/0/?tab=wm#inbox/15ad3fe6f4e5ff1f
 
-% Visão Geral do Projeto
+% Introdução (exemplo de capítulo sem numeração, mas presente no Sumário)
 % ----------------------------------------------------------
-\input{cap01-visaogeral}
+\input{cap01-parecertecnico}
 
-% Desenho do Processo Macro
+% PARTE DA PREPARAÇÃO DA PESQUISA
 % ----------------------------------------------------------
-\input{cap02-desenhomacro}
+%\part{Preparação da pesquisa}
+%\input{cap02}
+%
 
-% Diagrama de Casos de Uso
+% PARTE DOS REFERENCIAIS TEÓRICOS
 % ----------------------------------------------------------
-\input{cap03-diagramacasouso}
+%\part{Referenciais teóricos}
+%\input{cap03}
 
-% Histórias de Usuário
+% PARTE DOS RESULTADOS
 % ----------------------------------------------------------
-\input{cap04-historiasusuario}
-
-% Diagrama de Classes
-% ----------------------------------------------------------
-\input{cap05-diagramaclasses}
-
-% Diagramas de Sequência
-% ----------------------------------------------------------
-\input{cap06-diagramassequencia}
-
-% Diagrama Físico do Banco de Dados
-% ----------------------------------------------------------
-\input{cap07-diagramabanco}
-
-%\input{cap00}
+%\part{Resultados}
+%\input{cap05}
 
 % Finaliza a parte no bookmark do PDF
 % para que se inicie o bookmark na raiz
@@ -193,6 +184,10 @@
         % Numeração arábica para os apêndices
         % --------------------------------------------------
         \renewcommand{\thechapter}{\arabic{chapter}}
+        % Numeração Alfabética para os apêndices
+        % --------------------------------------------------
+        % \renewcommand{\thechapter}{\Alph{chapter}} %capitulos  com indicação Alfabética
+        %
         % Imprime uma página indicando o início dos apêndices
         % \partapendices
 
@@ -230,6 +225,10 @@
         % Numeração arábica para os apêndices
         % --------------------------------------------------
         \renewcommand{\thechapter}{\arabic{chapter}}
+        % 
+        % Numeração Alfabética para os anexos
+        % --------------------------------------------------
+        % \renewcommand{\thechapter}{\Alph{chapter}} %capitulos  com indicação Alfabética
         % --- Imprime uma página indicando o início dos anexos
         % \partanexos
 

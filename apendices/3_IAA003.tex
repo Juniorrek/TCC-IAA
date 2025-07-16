@@ -1,0 +1,151 @@
+\label{ap:ap03}
+\chapter{Linguagem R}
+\section*{\textbf{A - ENUNCIADO}}
+\subsection{Pesquisa com Dados de Satélite (Satellite)}
+
+
+
+O banco de dados consiste nos valores multiespectrais de pixels em vizinhanças 3x3 em uma imagem de satélite, e na
+classificação associada ao pixel central em cada vizinhança. O objetivo é prever esta classificação, dados os valores
+multiespectrais.
+
+Um quadro de imagens do Satélite Landsat com MSS (\textit{Multispectral Scanner System}) consiste em quatro imagens
+digitais da mesma cena em diferentes bandas espectrais. Duas delas estão na região visível (correspondendo
+aproximadamente às regiões verde e vermelha do espectro visível) e duas no infravermelho (próximo). Cada pixel é uma
+palavra binária de 8 bits, com 0 correspondendo a preto e 255 a branco. A resolução espacial de um pixel é de cerca de
+80m x 80m. Cada imagem contém 2340 x 3380 desses pixels. O banco de dados é uma subárea (minúscula) de uma cena,
+consistindo de 82 x 100 pixels. Cada linha de dados corresponde a uma vizinhança quadrada de pixels 3x3 completamente
+contida dentro da subárea 82x100. Cada linha contém os valores de pixel nas quatro bandas espectrais (convertidas em
+ASCII) de cada um dos 9 pixels na vizinhança de 3x3 e um número indicando o rótulo de classificação do pixel central.
+
+As classes são: solo vermelho, colheita de algodão, solo cinza, solo cinza úmido, restolho de vegetação, solo cinza
+muito úmido.
+
+Os dados estão em ordem aleatória e certas linhas de dados foram removidas, portanto você não pode reconstruir a imagem
+original desse conjunto de dados. Em cada linha de dados, os quatro valores espectrais para o pixel superior esquerdo
+são dados primeiro, seguidos pelos quatro valores espectrais para o pixel superior central e, em seguida, para o pixel
+superior direito, e assim por diante, com os pixels lidos em sequência, da esquerda para a direita e de cima para
+baixo. Assim, os quatro valores espectrais para o pixel central são dados pelos atributos 17, 18, 19 e 20. Se você
+quiser, pode usar apenas esses quatro atributos, ignorando os outros. Isso evita o problema que surge quando uma
+vizinhança 3x3 atravessa um limite.
+
+O banco de dados se encontra no pacote \textbf{mlbench} e é completo (não possui dados faltantes).
+\newpage
+Tarefas:
+
+\begin{enumerate}[series=listWWNumxxii,label=\arabic*.,ref=\arabic*]
+\item Carregue a base de dados Satellite
+\item Crie partições contendo 80\% para treino e 20\% para teste
+\item Treine modelos RandomForest, SVM e RNA para predição destes dados. 
+\item Escolha o melhor modelo com base em suas matrizes de confusão. 
+\item Indique qual modelo dá o melhor o resultado e a métrica utilizada
+\end{enumerate}
+
+
+
+
+\subsection{Estimativa de Volumes de Árvores}
+
+
+
+\textcolor{black}{Modelos de aprendizado de máquina são bastante usados na área da engenharia florestal (mensuração
+florestal) para, por exemplo, estimar o volume de madeira de árvores sem ser necessário abatê-las.}
+
+\textcolor{black}{O processo é feito pela coleta de dados (dados observados) através do abate de algumas árvores, onde
+sua altura, diâmetro na altura do peito (dap), etc, são medidos de forma exata. Com estes dados, treina-se um modelo de
+AM que pode estimar o volume de outras árvores da população.}
+
+\textcolor{black}{Os modelos, chamados alométricos, são usados na área há muitos anos e são baseados em regressão
+(linear ou não) para encontrar uma equação que descreve os dados. Por exemplo, o modelo de Spurr é dado por:}
+
+
+
+{\centering
+\textbf{\textcolor{black}{Volume = b0 + b1 *
+dap}}\textbf{\textcolor{black}{\textsuperscript{2}}}\textbf{\textcolor{black}{ * Ht}}
+\par}
+
+
+
+\textcolor{black}{Onde dap é o diâmetro na altura do peito (1,3metros), Ht é a altura total. Tem-se vários modelos
+alométricos, cada um com uma determinada característica, parâmetros, etc. Um modelo de regressão envolve aplicar os
+dados observados e encontrar b0 e b1 no modelo apresentado, gerando assim uma equação que pode ser usada para prever o
+volume de outras árvores.}
+
+\textcolor{black}{Dado o arquivo }\textbf{\textcolor{black}{Volumes.csv}}\textcolor{black}{, que contém os dados de
+observação, escolha um modelo de aprendizado de máquina com a melhor estimativa, a partir da estatística de
+correlação.}
+
+
+
+\textcolor{black}{Tarefas}
+
+\begin{enumerate}[series=listWWNumxx,label=\arabic*.,ref=\arabic*]
+\item \textcolor{black}{Carregar o arquivo Volumes.csv (http://www.razer.net.br/datasets/Volumes.csv)}
+\item \textcolor{black}{Eliminar a coluna NR, que só apresenta um número sequencial}
+\item \textcolor{black}{Criar partição de dados: treinamento 80\%, teste 20\%}
+\item \textcolor{black}{Usando o pacote {\textquotedbl}caret{\textquotedbl}, treinar os modelos: Random Forest (rf), SVM
+(svmRadial), Redes Neurais (neuralnet) e o modelo alométrico de SPURR}
+\end{enumerate}
+
+\begin{itemize}
+\item \textcolor{black}{O modelo alométrico é dado por: Volume = b0 + b1 *
+dap}\textcolor{black}{\textsuperscript{2}}\textcolor{black}{ * Ht}
+\end{itemize}
+
+
+\foreignlanguage{english}{\textbf{\textcolor{black}{alom {\textless}- nls(VOL \textasciitilde{} b0 + b1*DAP*DAP*HT, dados,
+start=list(b0=0.5, b1=0.5)}}}\foreignlanguage{english}{\textcolor{black}{)}}
+
+
+
+\begin{enumerate}[resume*=listWWNumxx,start=5]
+\item \textcolor{black}{Efetue as predições nos dados de teste}
+\item \textcolor{black}{Crie suas próprias funções (UDF) e calcule as seguintes métricas entre a predição e os dados
+observados}
+\end{enumerate}
+
+
+\textbf{Coeficiente de determinação: }$R^2$
+
+\begin{center}
+\includegraphics[width=5.191cm,height=2.9cm]{apendices/fig/IAA003_1.png} 
+\end{center}
+
+\textcolor{black}{onde } $y_i$ \textcolor{black}{\ é o valor observado, } $\widehat {y_i}$ \textcolor{black}{\ é o valor
+predito e } $\overline y$ \textcolor{black}{\ é a média dos valores } $y_i$ \textcolor{black}{\ observados. Quanto mais
+perto de 1 melhor é o modelo;}
+
+
+
+\begin{itemize}
+\item \textcolor{black}{Erro padrão da estimativa: S}\textcolor{black}{\textsubscript{yx}}
+\end{itemize}
+
+\begin{center}
+\includegraphics[width=5.117cm,height=2.32cm]{apendices/fig/IAA003_2.png} 
+\end{center}
+
+\textcolor{black}{esta métrica indica erro, portanto quanto mais perto de 0 melhor é o modelo;}
+
+
+
+\begin{itemize}
+\item \textcolor{black}{Syx\%}
+\end{itemize}
+\begin{center}
+\includegraphics[width=3.688cm,height=1.235cm]{apendices/fig/IAA003_3.png}
+\end{center}
+
+
+\textcolor{black}{esta métrica indica porcentagem de erro, portanto quanto mais perto de 0 melhor é o modelo;}
+
+
+
+\begin{enumerate}[resume*=listWWNumxx,start=7]
+\item \textcolor{black}{Escolha o melhor modelo.}
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{\textbf{B - RESOLUÇÃO}}
+\lipsum[30]

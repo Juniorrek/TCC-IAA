@@ -1,0 +1,75 @@
+\label{ap:ap11}
+\chapter{Visão computacional}
+\section*{\textbf{A - ENUNCIADO}}
+
+\subsection{Extração de Características }
+
+\textcolor{black}{Os bancos de imagens fornecidos são conjuntos de imagens de 250x250 pixels de imuno-histoquímica
+(biópsia) de câncer de mama. No total são 4 classes (0, 1+, 2+ e 3+) que estão divididas em diretórios.  O objetivo é
+classificar as imagens nas categorias correspondentes. Uma base de imagens será utilizada para o treinamento e outra
+para o teste do treino.}\textcolor{black}{ }
+
+\textcolor{black}{As imagens fornecidas são recortes de uma imagem maior do tipo WSI }\textit{\textcolor{black}{(Whole
+Slide Imaging}}\textcolor{black}{) disponibilizada pela Universidade de Warwick
+(}\underline{\href{https://pubmed.ncbi.nlm.nih.gov/28771788/}{\textcolor{black}{link}}}\textcolor{black}{)}\textit{\textcolor{black}{.}}\textcolor{black}{ A nomenclatura das imagens
+segue o padrão XX\_HER\_YYYY.png, onde XX é o número do paciente e YYYY é o número da imagem recortada. Separe a base
+de treino em 80\% para treino e 20\% para validação. }\textbf{\textcolor{black}{Separe por pacientes (XX), não utilize
+a separação randômica! Pois, imagens do mesmo paciente não podem estar na base de treino e de validação, pois isso pode
+gerar um viés.}}\textcolor{black}{ No caso da CNN VGG16 remova a última camada de classificação e armazene os valores
+da penúltima camada como um vetor de características. Após o treinamento, os modelos treinados devem ser validados na
+base de teste.}\textcolor{black}{ }
+
+\textcolor{black}{ }
+
+%\textcolor{black}{Tarefas:}\textcolor{black}{ }
+\subsubsection*{Tarefas:}
+
+\begin{enumerate}[series=listWWNumxxiv,label=\alph*),ref=\alph*]
+\item \textcolor{black}{Carregue a base de dados de }\textbf{\textcolor{black}{Treino.}}\textcolor{black}{ }
+\item \textcolor{black}{Crie partições contendo 80\% para treino e 20\% para validação (atenção aos
+pacientes).}\textcolor{black}{ }
+\item \textcolor{black}{Extraia características utilizando LBP e a CNN VGG16 (gerando um csv para cada
+extrator).}\textcolor{black}{ }
+\item \textcolor{black}{Treine modelos Random Forest, SVM e RNA para predição dos dados extraídos.}\textcolor{black}{ }
+\item \textcolor{black}{Carregue a base de }\textbf{\textcolor{black}{Teste}}\textcolor{black}{ e execute a tarefa 3
+nesta base.}\textcolor{black}{ }
+\item \textcolor{black}{Aplique os modelos treinados nos dados de treino}\textcolor{black}{ }
+\item \textcolor{black}{Calcule as métricas de Sensibilidade, Especificidade e F1-Score com base em suas matrizes de
+confusão.}\textcolor{black}{ }
+\item \textcolor{black}{Indique qual modelo dá o melhor o resultado e a métrica utilizada}\textcolor{black}{ }
+\end{enumerate}
+\textcolor{black}{ }
+
+\subsection{Redes Neurais}
+
+\textcolor{black}{Utilize as duas bases do exercício anterior para treinar as Redes Neurais Convolucionais VGG16 e a
+Resnet50. Utilize os pesos pré-treinados (}\textit{\textcolor{black}{Transfer Learning}}\textcolor{black}{), refaça as
+camadas }\textit{\textcolor{black}{Fully Connected}}\textcolor{black}{ para o problema de 4 classes. Compare os treinos
+de 15 épocas com e sem }\textit{\textcolor{black}{Data Augmentation}}\textcolor{black}{. Tanto a VGG16 quanto a
+Resnet50 têm como camada de entrada uma imagem 224x224x3, ou seja, uma imagem de 224x224 pixels coloridos (3 canais de
+cores). Portanto, será necessário fazer uma transformação de 250x250x3 para 224x224x3. Ao fazer o
+}\textit{\textcolor{black}{Data Augmentation }}\textbf{\textit{\textcolor{black}{
+}}}\textbf{\textcolor{black}{ cuidado }}\textcolor{black}{ para não alterar demais as cores das imagens e atrapalhar na
+classificação.}\textcolor{black}{ }
+
+\textcolor{black}{ }
+
+%\textcolor{black}{Tarefas:}\textcolor{black}{ }
+\subsubsection*{Tarefas:}
+
+\begin{enumerate}[series=listWWNumxxv,label=\alph*),ref=\alph*]
+\item \textcolor{black}{Utilize a base de dados de }\textbf{\textcolor{black}{Treino}}\textcolor{black}{ já separadas em
+treino e validação do exercício anterior}\textcolor{black}{ }
+\item \textcolor{black}{Treine modelos VGG16 e Resnet50 adaptadas com e sem }\textit{\textcolor{black}{Data
+Augmentation}}\textcolor{black}{ }
+\item \textcolor{black}{Aplique os modelos treinados nas imagens da base de
+}\textbf{\textcolor{black}{Teste}}\textcolor{black}{ }
+\item \textcolor{black}{Calcule as métricas de Sensibilidade, Especificidade e F1-Score com base em suas matrizes de
+confusão.}\textcolor{black}{ }
+\item \textcolor{black}{Indique qual modelo dá o melhor o resultado e a métrica utilizada}\textcolor{black}{ }
+\end{enumerate}
+\textcolor{black}{ }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{\textbf{B - RESOLUÇÃO}}
+\lipsum[30]

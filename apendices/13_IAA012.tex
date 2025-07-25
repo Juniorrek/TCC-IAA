@@ -1,0 +1,152 @@
+\label{ap:ap13}
+\chapter{Frameworks de IA}
+\section*{\textbf{A - ENUNCIADO}}
+
+\subsection{Classificação (RNA)}
+
+
+Implementar o exemplo de Classificação usando a base de dados Fashion MNIST e a arquitetura RNA vista na aula
+\textbf{FRA - Aula 10 - 2.4 Resolução de exercício de RNA - Classificação}. Além disso, fazer uma breve explicação dos
+seguintes resultados: 
+
+\begin{itemize}[series=listWWNumxiv,label={}-]
+\item Gráficos de perda e de acurácia;
+\item \ Imagem gerada na seção “\textbf{\textcolor[HTML]{2F5496}{Mostrar algumas classificações erradas”}}, apresentada
+na aula prática.
+\end{itemize}
+Informações:
+
+\begin{itemize}[series=listWWNumxiii,label=${\bullet}$]
+\item \textbf{Base de dados: }Fashion MNIST Dataset 
+\item \textbf{Descrição}: Um dataset de imagens de roupas, onde o objetivo é classificar o tipo de vestuário. É
+semelhante ao famoso dataset MNIST, mas com peças de vestuário em vez de dígitos.
+\item \textbf{Tamanho}: 70.000 amostras, 784 features (28x28 pixels).
+\end{itemize}
+\begin{itemize}[series=listWWNumxvi,label=${\bullet}$]
+\item \textbf{Importação do dataset}: Copiar código abaixo.
+\end{itemize}
+
+\foreignlanguage{english}{\textcolor[HTML]{188038}{data = tf.keras.datasets.fashion\_mnist }}
+
+\foreignlanguage{english}{\textcolor[HTML]{188038}{(x\_train, y\_train), (x\_test, y\_test) =
+fashion\_mnist.load\_data()}}
+
+
+\subsection{Regressão (RNA)}
+
+
+Implementar o exemplo de Classificação usando a base de dados Wine Dataset e a arquitetura RNA vista na aula \textbf{FRA
+- Aula 12 - 2.5 Resolução de exercício de RNA - Regressão}. Além disso, fazer uma breve explicação dos seguintes
+resultados: 
+
+\begin{itemize}
+\item Gráficos de avaliação do modelo (loss);
+\item Métricas de avaliação do modelo (pelo menos uma entre MAE, MSE, R²).
+\end{itemize}
+Informações:
+
+\begin{itemize}
+\item \textbf{Base de dados: }Wine Quality
+\item \textbf{Descrição}: O objetivo deste dataset prever a qualidade dos vinhos com base em suas características
+químicas. A variável target (y) neste exemplo será o score de qualidade do vinho, que varia de 0 (pior qualidade) a 10
+(melhor qualidade)
+\item \textbf{Tamanho}: 1599 amostras, 12 features.
+\end{itemize}
+\begin{itemize}
+\item \textbf{Importação}: Copiar código abaixo.
+\end{itemize}
+
+\foreignlanguage{english}{\textcolor[HTML]{188038}{url =
+{\textquotedbl}https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv{\textquotedbl}}}
+
+\textcolor[HTML]{188038}{data = pd.read\_csv(url, delimiter=';')}
+
+
+\textcolor[HTML]{188038}{Dica 1. Para facilitar o trabalho, renomeie o nome das colunas para português, dessa forma:}
+
+
+\textcolor[HTML]{188038}{data.columns = [}
+
+\textcolor[HTML]{188038}{\ \ \ \ {}'acidez\_fixa', \ \ \ \ \ \ \ \ \ \ \ \# fixed acidity}
+
+\textcolor[HTML]{188038}{\ \ \ \ {}'acidez\_volatil', \ \ \ \ \ \ \ \ \# volatile acidity}
+
+\textcolor[HTML]{188038}{\ \ \ \ {}'acido\_citrico', \ \ \ \ \ \ \ \ \ \# citric acid}
+
+\textcolor[HTML]{188038}{\ \ \ \ {}'acucar\_residual', \ \ \ \ \ \ \ \# residual sugar}
+
+\textcolor[HTML]{188038}{\ \ \ \ {}'cloretos', \ \ \ \ \ \ \ \ \ \ \ \ \ \ \# chlorides}
+
+\textcolor[HTML]{188038}{\ \ \ \ {}'dioxido\_de\_enxofre\_livre', \# free sulfur dioxide}
+
+\textcolor[HTML]{188038}{\ \ \ \ {}'dioxido\_de\_enxofre\_total', \# total sulfur dioxide}
+
+\textcolor[HTML]{188038}{\ \ \ \ {}'densidade', \ \ \ \ \ \ \ \ \ \ \ \ \ \# density}
+
+\textcolor[HTML]{188038}{\ \ \ \ {}'pH', \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \# pH}
+
+\textcolor[HTML]{188038}{\ \ \ \ {}'sulfatos', \ \ \ \ \ \ \ \ \ \ \ \ \ \ \# sulphates}
+
+\textcolor[HTML]{188038}{\ \ \ \ {}'alcool', \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \# alcohol}
+
+\textcolor[HTML]{188038}{\ \ \ \ {}'score\_qualidade\_vinho' \ \ \ \ \ \ \ \ \ \ \ \ \ \ \# quality}
+
+\textcolor[HTML]{188038}{]}
+
+
+\textcolor[HTML]{188038}{Dica 2. Separe os dados (x e y) de tal forma que a última coluna (índice -1), chamada
+score\_qualidade\_vinho, seja a variável target (y)}
+
+
+\subsection{Sistemas de Recomendação}
+
+
+Implementar o exemplo de Sistemas de Recomendação usando a base de dados Base\_livos.csv e a arquitetura vista na aula
+\textbf{FRA - Aula 22 - 4.3 Resolução do Exercício de Sistemas de Recomendação}. Além disso, fazer uma breve explicação
+dos seguintes resultados:
+
+\begin{itemize}[series=listWWNumxv,label=${\bullet}$]
+\item Gráficos de avaliação do modelo (loss);
+\item Exemplo de recomendação de livro para determinado Usuário.
+\end{itemize}
+Informações:
+
+\begin{itemize}[series=listWWNumxvii,label=${\bullet}$]
+\item \textbf{Base de dados: }Base\_livros.csv
+\item \textbf{Descrição}: Esse conjunto de dados contém informações sobre avaliações de livros (Notas), nomes de livros
+(Titulo), ISBN e identificação do usuário (ID\_usuario)
+\item \textbf{Importação: }Base de dados disponível no Moodle (UFPR Virtual), chamada Base\_livros (formato .csv).
+\end{itemize}
+
+\subsection{Deepdream}
+
+
+Implementar o exemplo de implementação mínima de Deepdream usando uma imagem de um felino \ {}- retirada do site
+Wikipedia - e a arquitetura Deepdream vista na aula \textbf{FRA - Aula 23 - Prática Deepdream}. Além disso, fazer uma
+breve explicação dos seguintes resultados: 
+
+\begin{itemize}
+\item Imagem onírica obtida por \textit{Main Loop};
+\item Imagem onírica obtida ao levar o modelo até uma oitava;
+\item Diferenças entre imagens oníricas obtidas com \ \textit{Main Loop }e levando o modelo até a oitava.
+\end{itemize}
+Informações:
+
+\begin{itemize}[resume*=listWWNumxiii]
+\item \textbf{Base de dados: }\url{https://commons.wikimedia.org/wiki/File:Felis_catus-cat_on_snow.jpg}
+\end{itemize}
+\begin{itemize}
+\item \textbf{Importação da imagem}: Copiar código abaixo.
+\end{itemize}
+
+\foreignlanguage{english}{\textcolor[HTML]{188038}{url =
+{\textquotedbl}}}\url{https://commons.wikimedia.org/wiki/Special:FilePath/Felis_catus-cat_on_snow.jpg}\foreignlanguage{english}{\textcolor[HTML]{188038}{{\textquotedbl}}}
+
+
+\textcolor[HTML]{188038}{Dica: Para exibir a imagem utilizando display (display.html) use o \\link
+https://commons.wikimedia.org/wiki/File:Felis\_catus-cat\_on\_snow.jpg}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{\textbf{B - RESOLUÇÃO}}
+\lipsum[30]

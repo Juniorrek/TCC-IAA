@@ -193,36 +193,6 @@ from sklearn.model_selection import RandomizedSearchCV
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
 dados = pd.read_csv('precos_carros_brasil.csv')
-dados.columns
-\end{lstlisting}
-
-\begin{lstlisting}[language=, style=output]
-Index(['year_of_reference', 'month_of_reference', 'fipe_code', 'authentication', 'brand', 'model', 'fuel', 'gear', 'engine_size', 'year_model', 'avg_price_brl'], dtype='object')
-\end{lstlisting}
-
-
-\begin{lstlisting}[language=Python, style=input]
-dados.dtypes
-\end{lstlisting}
-
-
-\begin{lstlisting}[language=, style=output]
-year_of_reference     float64
-month_of_reference     object
-fipe_code              object
-authentication         object
-brand                  object
-model                  object
-fuel                   object
-gear                   object
-engine_size            object
-year_model            float64
-avg_price_brl         float64
-dtype: object
-\end{lstlisting}
-
-
-\begin{lstlisting}[language=Python, style=input]
 dados.head()
 \end{lstlisting}
 
@@ -268,24 +238,6 @@ engine_size           False
 year_model            False
 avg_price_brl         False
 dtype: bool
-\end{lstlisting}
-\begin{lstlisting}[language=Python, style=input]
-# Verificando a quantidade de valores faltantes por coluna
-dados.isna().sum()
-\end{lstlisting}
-\begin{lstlisting}[language=, style=output]
-year_of_reference     0
-month_of_reference    0
-fipe_code             0
-authentication        0
-brand                 0
-model                 0
-fuel                  0
-gear                  0
-engine_size           0
-year_model            0
-avg_price_brl         0
-dtype: int64
 \end{lstlisting}
 Não há valores faltantes.
 
@@ -418,14 +370,6 @@ plt.xlabel('Marca')
 \textbf{b. Gere um gráfico da distribuição da quantidade de carros por tipo de engrenagem do carro}
 \end{adjustwidth}
 \begin{lstlisting}[language=Python, style=input]
-dados['gear'].value_counts()
-\end{lstlisting}
-\begin{lstlisting}[language=, style=output]
-manual       161883
-automatic     40412
-Name: gear, dtype: int64
-\end{lstlisting}
-\begin{lstlisting}[language=Python, style=input]
 # Gráfico da distribuição por engrenagem (tipo de marcha)
 plt.figure(figsize=(20,10)) 
 plt.bar(dados['gear'].unique(), dados['gear'].value_counts()) 
@@ -445,46 +389,10 @@ plt.xlabel('Tipo de engrenagem (marcha)')
 \begin{lstlisting}[language=Python, style=input]
 # limitando para somente os dados de 2022
 dados_2022 = dados[dados['year_of_reference'] == 2022]
-dados_2022.head()
-\end{lstlisting}
-\begin{table}[H]
-\centering
-\resizebox{\textwidth}{!}{
-\begin{tabular}{lllllllllllll}
-\hline
-\textbf{ID} & \textbf{year\_ref} & \textbf{month} & \textbf{fipe\_code} & \textbf{auth} & \textbf{brand} & \textbf{model} & \textbf{fuel} & \textbf{gear} & \textbf{engine} & \textbf{year\_model} & \textbf{avg\_price} \\
-\hline
-96280 & 2022.0 & January & 004001-0 & gzw0hkct8cj4 & GM - Chevrolet & Corsa Wind 1.0 MPFI / EFI 2p & Gasoline & manual & 1 & 2002.0 & 12330.0 \\
-96281 & 2022.0 & January & 004001-0 & gm2ws5yqjnfx & GM - Chevrolet & Corsa Wind 1.0 MPFI / EFI 2p & Gasoline & manual & 1 & 2001.0 & 11408.0 \\
-96282 & 2022.0 & January & 004001-0 & gbvgy7432kp & GM - Chevrolet & Corsa Wind 1.0 MPFI / EFI 2p & Gasoline & manual & 1 & 2000.0 & 10620.0 \\
-96283 & 2022.0 & January & 004001-0 & gvx412fg8v0 & GM - Chevrolet & Corsa Wind 1.0 MPFI / EFI 2p & Alcohol & manual & 1 & 2000.0 & 11992.0 \\
-96284 & 2022.0 & January & 004003-7 & jtskpmg524fx & GM - Chevrolet & Corsa Pick-Up GL/ Champ 1.6 MPFI / EFI & Gasoline & manual & 1,6 & 2001.0 & 17182.0 \\
-\hline
-\end{tabular}
-}
-%caption{Sample vehicle listings from 2022}
-\label{tab:vehicle_listings}
-\end{table}
-\begin{lstlisting}[language=Python, style=input]
+
 # verificando os completude dos meses
 dados_2022['month_of_reference'].drop_duplicates()
-\end{lstlisting}
-\begin{lstlisting}[language=, style=output]
-96280       January
-104390     February
-112513        March
-120665        April
-128756          May
-136850         June
-144992         July
-153143       August
-161294    September
-169483      October
-177685     November
-185880     December
-Name: month_of_reference, dtype: object
-\end{lstlisting}
-\begin{lstlisting}[language=Python, style=input]
+
 # Calculando a média de preços por mês
 media_precos_mes = dados_2022.groupby(['year_of_reference','month_of_reference'])['avg_price_brl'].mean().round(0) 
 df_media_precos_mes = media_precos_mes.reset_index(name='Médio de Preço')
@@ -603,50 +511,11 @@ sns.boxplot(dados['avg_price_brl']).set_title("Distribuição dos preços dos ca
 \begin{lstlisting}[language=Python, style=input]
 # Transformação da coluna modelo (model) de categórica para numérica
 dados['model'] = LabelEncoder().fit_transform(dados['model']) 
-dados.head()
-\end{lstlisting}
-\begin{table}[H]
-\centering
-\resizebox{\textwidth}{!}{
-\begin{tabular}{rrrrllllllll}
-\hline
-\textbf{ID} & \textbf{Year} & \textbf{Month} & \textbf{FIPE Code} & \textbf{Auth} & \textbf{Brand} & \textbf{Model Code} & \textbf{Fuel} & \textbf{Gear} & \textbf{Engine} & \textbf{Year Model} & \textbf{Avg. Price (BRL)} \\
-\hline
-0 & 2021.0 & January & 004001-0 & cfzlctzfwrcp & GM - Chevrolet & 297 & Gasoline & manual & 1 & 2002.0 & 9162.0 \\
-1 & 2021.0 & January & 004001-0 & cdqwxwpw3y2p & GM - Chevrolet & 297 & Gasoline & manual & 1 & 2001.0 & 8832.0 \\
-2 & 2021.0 & January & 004001-0 & cb1t3xwwj1xp & GM - Chevrolet & 297 & Gasoline & manual & 1 & 2000.0 & 8388.0 \\
-3 & 2021.0 & January & 004001-0 & cb9gct6j65r0 & GM - Chevrolet & 297 & Alcohol & manual & 1 & 2000.0 & 8453.0 \\
-4 & 2021.0 & January & 004003-7 & g15wg0gbz1fx & GM - Chevrolet & 260 & Gasoline & manual & 1,6 & 2001.0 & 12525.0 \\
-\hline
-\end{tabular}
-}
-%\caption{Sample vehicle price records for January 2021}
-\label{tab:vehicle_prices_jan2021}
-\end{table}
-\begin{lstlisting}[language=Python, style=input]
+
 # Transformação da coluna engrenagem (gear) de categórica para numérica
 dados['gear'] = LabelEncoder().fit_transform(dados['gear']) 
 dados.head()
-\end{lstlisting}
-\begin{table}[H]
-\centering
-\resizebox{\textwidth}{!}{
-\begin{tabular}{rrrrllllllll}
-\hline
-\textbf{ID} & \textbf{Year} & \textbf{Month} & \textbf{FIPE Code} & \textbf{Auth} & \textbf{Brand} & \textbf{Model} & \textbf{Fuel} & \textbf{Gear} & \textbf{Engine} & \textbf{Year Model} & \textbf{Avg. Price (BRL)} \\
-\hline
-0 & 2021.0 & January & 004001-0 & cfzlctzfwrcp & GM - Chevrolet & 297 & Gasoline & 1 & 1 & 2002.0 & 9162.0 \\
-1 & 2021.0 & January & 004001-0 & cdqwxwpw3y2p & GM - Chevrolet & 297 & Gasoline & 1 & 1 & 2001.0 & 8832.0 \\
-2 & 2021.0 & January & 004001-0 & cb1t3xwwj1xp & GM - Chevrolet & 297 & Gasoline & 1 & 1 & 2000.0 & 8388.0 \\
-3 & 2021.0 & January & 004001-0 & cb9gct6j65r0 & GM - Chevrolet & 297 & Alcohol  & 1 & 1 & 2000.0 & 8453.0 \\
-4 & 2021.0 & January & 004003-7 & g15wg0gbz1fx & GM - Chevrolet & 260 & Gasoline & 1 & 1,6 & 2001.0 & 12525.0 \\
-\hline
-\end{tabular}
-}
-%\caption{Vehicle pricing data from January 2021}
-\label{tab:jan2021_vehicle_prices}
-\end{table}
-\begin{lstlisting}[language=Python, style=input]
+
 # Transformação da coluna combustível (fuel) de categórica para numérica
 dados['fuel'] = LabelEncoder().fit_transform(dados['fuel']) 
 dados.head()
@@ -670,48 +539,9 @@ dados.head()
 \label{tab:vehicle_data_encoded}
 \end{table}
 \begin{lstlisting}[language=Python, style=input]
-dados.columns
-\end{lstlisting}
-\begin{lstlisting}[language=, style=output]
-Index(['year_of_reference', 'month_of_reference', 'fipe_code',
-       'authentication', 'brand', 'model', 'fuel', 'gear', 'engine_size',
-       'year_model', 'avg_price_brl'],
-      dtype='object')
-\end{lstlisting}
-\begin{lstlisting}[language=Python, style=input]
 # Variável dados_num contém apenas variáveis numéricas de interesse (exclui o restante)
 dados_num = dados.drop(['year_of_reference', 'month_of_reference', 'fipe_code', 'authentication', 'brand', 'engine_size'],axis = 1)
-dados_num.head()
-\end{lstlisting}
-\begin{table}[H]
-%\begin{table}[h!]
-\centering
-\begin{tabular}{rrrrr}
-\hline
-\textbf{Model Code} & \textbf{Fuel Code} & \textbf{Gear Code} & \textbf{Year Model} & \textbf{Avg. Price (BRL)} \\
-\hline
-297 & 2 & 1 & 2002.0 & 9162.0 \\
-297 & 2 & 1 & 2001.0 & 8832.0 \\
-297 & 2 & 1 & 2000.0 & 8388.0 \\
-297 & 0 & 1 & 2000.0 & 8453.0 \\
-260 & 2 & 1 & 2001.0 & 12525.0 \\
-\hline
-\end{tabular}
-%\caption{Simplified vehicle data with numeric fuel and gear codes}
-\label{tab:simplified_vehicle_data}
-\end{table}
-\begin{lstlisting}[language=Python, style=input]
-dados_num.dtypes
-\end{lstlisting}
-\begin{lstlisting}[language=, style=output]
-model              int32
-fuel               int32
-gear               int32
-year_model       float64
-avg_price_brl    float64
-dtype: object
-\end{lstlisting}
-\begin{lstlisting}[language=Python, style=input]
+
 sns.heatmap(dados_num.corr("spearman"), annot = True)
 plt.title("Mapa de Correlação das Variáveis Numéricas\n", fontsize = 15)
 plt.show()
@@ -724,39 +554,9 @@ plt.show()
 \begin{lstlisting}[language=Python, style=input]
 # Variável X contém apenas variáveis numéricas de interesse para a análise, excluindo a variável target 
 X = dados_num.drop(['avg_price_brl'],axis = 1)
-X.head()
-\end{lstlisting}
-\begin{table}[H]
-\centering
-\begin{tabular}{rrrr}
-\hline
-\textbf{Model Code} & \textbf{Fuel Code} & \textbf{Gear Code} & \textbf{Year Model} \\
-\hline
-297 & 2 & 1 & 2002.0 \\
-297 & 2 & 1 & 2001.0 \\
-297 & 2 & 1 & 2000.0 \\
-297 & 0 & 1 & 2000.0 \\
-260 & 2 & 1 & 2001.0 \\
-\hline
-\end{tabular}
-%\caption{Basic vehicle specifications by model, fuel, gear, and year}
-\label{tab:vehicle_specs}
-\end{table}
-\begin{lstlisting}[language=Python, style=input]
+
 Y = dados_num['avg_price_brl']
-Y.head()
 \end{lstlisting}
-\begin{lstlisting}[language=, style=output]
-0     9162.0
-1     8832.0
-2     8388.0
-3     8453.0
-4    12525.0
-Name: avg_price_brl, dtype: float64
-\end{lstlisting}
-
-
-
 
 
 \begin{adjustwidth}{1em}{}
@@ -765,62 +565,7 @@ Name: avg_price_brl, dtype: float64
 \begin{lstlisting}[language=Python, style=input]
 # Divisão: 30% dos dados são de teste e 70% de treinamento
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.25, random_state = 42)
-
-# Observando os dados de treinamento
-print(X_train.shape)
-X_train.head()
 \end{lstlisting}
-\begin{table}[H]
-\centering
-\begin{tabular}{rrrr}
-\hline
-\textbf{Model Code} & \textbf{Fuel Code} & \textbf{Gear Code} & \textbf{Year Model} \\
-\hline
-364  & 1 & 1 & 2020.0 \\
-1099 & 2 & 1 & 2011.0 \\
-549  & 2 & 1 & 2008.0 \\
-385  & 1 & 1 & 2013.0 \\
-970  & 2 & 1 & 2018.0 \\
-\hline
-\end{tabular}
-%\caption{Vehicle model, fuel type, gear type, and year}
-\label{tab:model_fuel_gear_year}
-\end{table}
-\begin{lstlisting}[language=Python, style=input]
-# Observando os dados de teste
-print(X_test.shape)
-X_test.head()
-\end{lstlisting}
-\begin{table}[H]
-\centering
-\begin{tabular}{rrrr}
-\hline
-\textbf{Model Code} & \textbf{Fuel Code} & \textbf{Gear Code} & \textbf{Year Model} \\
-\hline
-1235 & 2 & 1 & 2015.0 \\
-224  & 2 & 1 & 2005.0 \\
-1984 & 2 & 1 & 2003.0 \\
-1114 & 2 & 1 & 2008.0 \\
-310  & 2 & 0 & 2019.0 \\
-\hline
-\end{tabular}
-%\caption{Vehicle model info with fuel, gear type, and year}
-\label{tab:model_info_fuel_gear}
-\end{table}
-\begin{lstlisting}[language=Python, style=input]
-# Observando a variável target
-Y_test.head()
-\end{lstlisting}
-\begin{lstlisting}[language=, style=output]
-180633    42595.0
-13130     10989.0
-163315     9087.0
-121464    26965.0
-14044     57102.0
-Name: avg_price_brl, dtype: float64
-\end{lstlisting}
-
-
 
 \begin{adjustwidth}{1em}{}
 \textbf{c. Treine modelos RandomForest (biblioteca RandomForestRegressor) e XGBoost (biblioteca XGBRegressor) para predição
@@ -872,29 +617,17 @@ model_xgboost.fit(X_train, Y_train)
 valores_preditos_rf = model_rf.predict(X_test)
 valores_preditos_rf 
 \end{lstlisting}
-\begin{lstlisting}[language=, style=output]
-array([ 40202.75425599,  13245.75443638,   8284.98551924, ...,
-       100752.20098065,   9079.96883553,  26846.22919497])
-\end{lstlisting}
 
 \begin{lstlisting}[language=Python, style=input]
 #RandomForest com parâmetros
 valores_preditos_rf_parametros = model_rf_parametros.predict(X_test)
 valores_preditos_rf_parametros
 \end{lstlisting}
-\begin{lstlisting}[language=, style=output]
-array([ 40228.52250094,  13256.95619505,   8173.31940763, ...,
-       101226.60508665,   9092.06259221,  27167.56218788])
-\end{lstlisting}
 
 \begin{lstlisting}[language=Python, style=input]
 #XGBoost
 valores_preditos_xgboost = model_xgboost.predict(X_test)
 valores_preditos_xgboost
-\end{lstlisting}
-\begin{lstlisting}[language=, style=output]
-array([40623.945, 13863.4  ,  8653.945, ..., 99269.16 , 10503.629,
-       25664.008], dtype=float32)
 \end{lstlisting}
 
 \begin{adjustwidth}{1em}{}

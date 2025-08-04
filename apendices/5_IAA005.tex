@@ -2,12 +2,11 @@
 \chapter{Estatística Aplicada II}
 \section*{\textbf{A - ENUNCIADO}}
 
-\textbf{Regressões Ridge, Lasso e ElasticNet}
+\subsection*{\textbf{1 Regressões Ridge, Lasso e ElasticNet}}
 
 
-\bigskip
-
-\textbf{(100 pontos) }Fazer as regressões Ridge, Lasso e ElasticNet com a variável dependente “lwage” (salário-hora da
+\begin{enumerate}[label=\alph*)]
+\item \textbf{(100 pontos) }Fazer as regressões Ridge, Lasso e ElasticNet com a variável dependente “lwage” (salário-hora da
 esposa em logaritmo neperiano) e todas as demais variáveis da base de dados são variáveis explicativas (todas essas
 variáveis tentam explicar o salário-hora da esposa). No pdf você deve colocar a rotina utilizada, mostrar em uma tabela
 as estatísticas dos modelos (RMSE e R\textsuperscript{2}) e concluir qual o melhor modelo entre os três, e mostrar o
@@ -42,14 +41,304 @@ union = 0 \ \ \ \ \ \ \ \ \ \ \ \ \ (esposa não possui união estável)
 exper = 18 \ \ \ \ \ \ \ \ \ \ \ (anos de experiência de trabalho da esposa)
 
 kidlt6 = 1 \ \ \ \ \ \ \ \ \ \ \ \ \ (possui filhos menores de 6 anos)
-
-
-\bigskip
-
+\end{enumerate}
 obs: lembre-se de que a variável dependente “lwage” já está em logarítmo, portanto voçê não precisa aplicar o logaritmo
 nela para fazer as regressões, mas é necessário aplicar o antilog para obter o resultado da predição. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{\textbf{B - RESOLUÇÃO}}
-\lipsum[30]
+\begin{adjustwidth}{1em}{}
+\textbf{a) Fazer as regressões Ridge, Lasso e ElasticNet com a variável dependente “lwage” (salário-hora da
+esposa em logaritmo neperiano) e todas as demais variáveis da base de dados são variáveis explicativas (todas essas
+variáveis tentam explicar o salário-hora da esposa).}
+\end{adjustwidth}
+
+\subsection*{PADRONIZAÇÃO DOS DADOS}
+
+\begin{lstlisting}[language=R, style=input]
+cols = c('husage', 'husearns', 'huseduc', 'hushrs', 'earns', 'age', 'educ', 'exper', 'lwage')
+pre_proc_val <- preProcess(train[,cols], method = c("center", "scale"))
+
+train[,cols] = predict(pre_proc_val, train[,cols])
+test[,cols] = predict(pre_proc_val, test[,cols])
+
+cols_reg = c('husage', 'husunion', 'husearns', 'huseduc', 'husblck', 'hushisp', 'hushrs',
+'kidge6', 'age', 'black', 'educ', 'hispanic', 'union', 'exper', 'kidlt6', 'lwage')
+
+dummies <- dummyVars(lwage~husage+husunion+husearns+huseduc+husblck+
+hushisp+hushrs+kidge6+age+black+educ+hispanic+union+exper+kidlt6, 
+data = dat[,cols_reg])
+train_dummies = predict(dummies, newdata = train[,cols_reg])
+test_dummies = predict(dummies, newdata = test[,cols_reg])
+
+x_train = as.matrix(train_dummies)
+y_train = train$lwage
+
+x_test = as.matrix(test_dummies)
+y_test = test$lwage
+\end{lstlisting}
+
+\subsection*{REGRESSÃO RIDGE}
+\begin{lstlisting}[language=R, style=input]
+lambdas <- 10^seq(5, -5, by = -1)
+ridge_lamb <- cv.glmnet(x_train, y_train, alpha = 0, lambda = lambdas, nfolds = 10)
+
+best_lambda_ridge <- ridge_lamb$lambda.min
+best_lambda_ridge
+
+ridge_reg = glmnet(x_train, y_train, nlambda = 50, alpha = 0, family = 'gaussian', 
+lambda = best_lambda_ridge)
+ridge_reg
+
+# Resultado
+# (coeficientes)
+ridge_reg[["beta"]]
+
+predictions_train_ridge <- predict(ridge_reg, s = best_lambda_ridge, newx = x_train)
+\end{lstlisting}
+
+Visualizando o resultado da estimativa dos coeficientes percebemos que nem todas as variáveis explicam a variável dependente. Infelizmente as que explicam tem valor explicativo muito baixo, sendo somente as com certa relevância ``husearns'', ``husblck'', ``hushisp'', ``kidge6'', ``black'', ``educ'' e ``union''. \\
+
+\begin{lstlisting}[language=R, style=output]
+15 x 1 sparse Matrix of class "dgCMatrix"
+                  s0
+husage    0.02651324
+husunion -0.04174920
+husearns  0.23671354
+huseduc   0.04804650
+husblck   0.24319544
+hushisp   0.11457810
+hushrs   -0.07293064
+kidge6   -0.16442536
+age       0.04466390
+black    -0.29066663
+educ      0.30859463
+hispanic -0.09979930
+union     0.41614645
+exper    -0.01411404
+kidlt6   -0.02475760
+\end{lstlisting}
+
+
+
+\subsection*{REGRESSÃO LASSO}
+\begin{lstlisting}[language=R, style=input]
+lambdas <- 10^seq(5, -5, by = -.1)
+
+lasso_lamb <- cv.glmnet(x_train, y_train, alpha = 1, lambda = lambdas, 
+standardize = TRUE, nfolds = 10)
+
+best_lambda_lasso <- lasso_lamb$lambda.min 
+best_lambda_lasso
+
+lasso_model <- glmnet(x_train, y_train, alpha = 1, lambda = best_lambda_lasso, 
+standardize = TRUE)
+
+lasso_model[["beta"]]
+
+predictions_train_lasso <- predict(lasso_model, s = best_lambda_lasso, newx = x_train)
+\end{lstlisting}
+
+Visualizando o resultado da estimativa dos coeficientes percebemos que nem todas as variáveis explicam a variável dependente. Infelizmente as que explicam tem valor explicativo muito baixo, sendo somente as com certa relevância ``husearns'', ``husblck'', ``hushisp'', ``kidge6'', ``black'', ``educ'' e ``union''. Enquanto a variável ``exper'' teve tão pouco valor explicativo que foi a zero. \\
+
+\begin{lstlisting}[language=R, style=output]
+15 x 1 sparse Matrix of class "dgCMatrix"
+                  s0
+husage    0.02406805
+husunion -0.04144957
+husearns  0.23903324
+huseduc   0.04539082
+husblck   0.26797943
+hushisp   0.11329929
+hushrs   -0.07369940
+kidge6   -0.16534640
+age       0.03331493
+black    -0.31556379
+educ      0.31552507
+hispanic -0.09716331
+union     0.41807407
+exper     .         
+kidlt6   -0.02464497
+\end{lstlisting}
+
+\subsection*{REGRESSÃO ELASTICNET}
+\begin{lstlisting}[language=R, style=input]
+train_cont <- trainControl(method = "repeatedcv",
+                           number = 10,
+                           repeats = 5,
+                           search = "random",
+                           verboseIter = FALSE)
+
+elastic_reg <- train(lwage~husage+husunion+husearns+huseduc+husblck+hushisp+
+hushrs+kidge6+age+black+educ+hispanic+union+exper+kidlt6,
+                     data = train,
+                     method = "glmnet",
+                     tuneLength = 20,
+                     trControl = train_cont)
+
+# O melhor parametro alpha escolhido eh:
+#       alpha       lambda
+#15     0.8015939   0.01293922
+elastic_reg$bestTune
+
+# E os parametros sao:
+#elastic_reg[["finalModel"]][["beta"]]
+
+predictions_train_elasticnet <- predict(elastic_reg, x_train)
+\end{lstlisting}
+
+\section*{COMPARANDO RESULTADOS}
+
+\begin{lstlisting}[language=R, style=input]
+eval_results <- function(true, predicted, df) {
+  SSE <- sum((predicted - true)^2)
+  SST <- sum((true - mean(true))^2)
+  R_square <- 1 - SSE / SST
+  RMSE = sqrt(SSE/nrow(df))
+  
+  # As metricas de performace do modelo:
+  data.frame(
+    RMSE = RMSE,
+    Rsquare = R_square
+  )
+}
+
+eval_with_params <- function(model, best_lambda = NULL) {
+  husage = (40-pre_proc_val[["mean"]][["husage"]])/pre_proc_val[["std"]][["husage"]]
+  husunion = 0
+  husearns = (600-pre_proc_val[["mean"]][["husearns"]])/
+  pre_proc_val[["std"]][["husearns"]]
+  huseduc = (13-pre_proc_val[["mean"]][["huseduc"]])/pre_proc_val[["std"]][["huseduc"]]
+  husblck = 1
+  hushisp = 0
+  hushrs = (40-pre_proc_val[["mean"]][["hushrs"]])/pre_proc_val[["std"]][["hushrs"]]
+  kidge6 = 1
+  age = (38-pre_proc_val[["mean"]][["age"]])/pre_proc_val[["std"]][["age"]]
+  black = 0
+  educ = (13-pre_proc_val[["mean"]][["educ"]])/pre_proc_val[["std"]][["educ"]]
+  hispanic = 1
+  union = 0
+  exper = (18-pre_proc_val[["mean"]][["exper"]])/pre_proc_val[["std"]][["exper"]]
+  kidlt6 = 1
+  
+  our_pred = as.matrix(data.frame(husage=husage, 
+                                  husunion=husunion,
+                                  husearns=husearns,
+                                  huseduc=huseduc,
+                                  husblck=husblck,
+                                  hushisp=hushisp,
+                                  hushrs=hushrs,
+                                  kidge6=kidge6,
+                                  age=age,
+                                  black=black,
+                                  educ=educ,
+                                  hispanic=hispanic,
+                                  union=union,
+                                  exper=exper,
+                                  kidlt6=kidlt6))
+  
+  prediction <- predict(model, s = best_lambda, newx = our_pred)
+  
+  if (is.null(best_lambda)) {
+    prediction <- predict(model, our_pred)
+  }
+  
+  wage_pred=(prediction*pre_proc_val[["std"]][["lwage"]])+
+  pre_proc_val[["mean"]][["lwage"]]
+  
+  cat("Predicao: ", wage_pred, "\n")
+  cat("Predicao exp: ", exp(wage_pred), "\n")
+  
+  return(wage_pred)
+}
+
+show_values <- function(wage_pred) {
+  
+  # O intervalo de confianca
+  n <- nrow(train)
+  m <- wage_pred
+  s <- pre_proc_val[["std"]][["lwage"]]
+  dam <- s/sqrt(n)
+  CIlwr <- m + (qnorm(0.025))*dam # intervalo inferior
+  CIupr <- m - (qnorm(0.025))*dam # intervalo superior
+  
+  cat("Intervalo inferior: ", CIlwr, "\n")
+  cat("Intervalo superior: ", CIupr, "\n")
+  
+  cat("Intervalo inferior exp: ", exp(CIlwr), "\n")
+  cat("Intervalo superior exp: ", exp(CIupr), "\n")
+}
+
+# -------- RIDGE -------- #
+
+eval_results(y_train, predictions_train_ridge, train)
+
+predictions_test <- predict(ridge_reg, s = best_lambda_ridge, newx = x_test)
+eval_results(y_test, predictions_test, test)
+
+predict_our_ridge <- eval_with_params(ridge_reg, best_lambda = best_lambda_ridge)
+
+show_values(predict_our_ridge)
+
+# -------- LASSO -------- #
+
+eval_results(y_train, predictions_train_lasso, train)
+
+predictions_test <- predict(lasso_model, s = best_lambda_lasso, newx = x_test)
+eval_results(y_test, predictions_test, test)
+
+predict_our_lasso <- eval_with_params(lasso_model, best_lambda = best_lambda_lasso)
+
+show_values(predict_our_lasso)
+
+# ------- ELATICNET ----- #
+
+eval_results(y_train, predictions_train_elasticnet, train) 
+predictions_test <- predict(elastic_reg, x_test)
+eval_results(y_test, predictions_test, test)
+
+predict_our_elastic <- eval_with_params(elastic_reg)
+
+show_values(predict_our_elastic)
+\end{lstlisting}
+
+Observando a Tabela \ref{tab:metricas} abaixo observamos que os valores para as métricas de todos os modelos são muito próximas e também não muito boas, não descartando a hipótese de overfitting ou underfitting. Mesmo assim, a título de comparação observamos que o modelo Lasso se saiu ligeiraimente melhor do que os outros para o conjunto de dados de treinamento, enquanto o modelo Ridge se saiu ligeiramente melhor nos dados de teste.
+
+\begin{table}[H]
+\centering
+\caption{Tabela de métricas dos modelos}
+\begin{tabular}{c|c|c|c|c||}      
+\cline{2-5}
+    & \multicolumn{2}{c|}{Treinamento} & \multicolumn{2}{c||}{Teste}\\
+\cline{2-5}
+    & RMSE & Rsquare & RMSE & Rsquare\\
+\cline{1-5}
+\multicolumn{1}{||c|}{Ridge} & \cellcolor[HTML]{FFF8B8} 0.8485564 & \cellcolor[HTML]{FFF8B8} 0.2796022 & \cellcolor[HTML]{CAF2C2} 0.8488229 & \cellcolor[HTML]{CAF2C2} 0.3004756 \\
+\cline{1-5}
+\multicolumn{1}{||c|}{Lasso} & \cellcolor[HTML]{CAF2C2} 0.8485375 & \cellcolor[HTML]{CAF2C2} 0.2796343 & \cellcolor[HTML]{FFF8B8} 0.8488541 & \cellcolor[HTML]{FFF8B8} 0.3004242 \\
+\cline{1-5}
+\multicolumn{1}{||c|}{ElasticNet} & \cellcolor[HTML]{FFD6C9} 0.8495878 & \cellcolor[HTML]{FFD6C9} 0.2778498 & \cellcolor[HTML]{FFD6C9} 0.8490653 & \cellcolor[HTML]{FFD6C9} 0.3000762 \\                
+\hline
+\end{tabular}
+\label{tab:metricas}
+\end{table}
+
+Na Tabela \ref{tab:predicao} pode-se observar os valores preditos pelos modelos para as váriaveis especificadas inicialmente.
+
+\begin{table}[H]
+\centering
+\caption{Tabela de Predição e Intervalos de Confiança}
+\begin{tabular}{c|c|c||}       
+\cline{2-3}
+           & \multicolumn{1}{c|}{Predição} & Intervalos de Confiança \\
+\hline
+\multicolumn{1}{||c|}{Ridge}      & 8.633904 & 8.442068 | 8.8301     \\
+\hline
+\multicolumn{1}{||c|}{Lasso}      & 8.746603 & 8.552263 | 8.945359     \\
+\hline
+\multicolumn{1}{||c|}{ElasticNet} & 8.160874 & 7.979548 | 8.34632    \\
+\hline
+\end{tabular}
+\label{tab:predicao}
+\end{table}

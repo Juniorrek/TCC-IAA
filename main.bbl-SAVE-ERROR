@@ -52,6 +52,135 @@
       \verb http://abntex2.googlecode.com/
       \endverb
     \endentry
+    \entry{cassol2023}{misc}{}{1}
+      \name{author}{1}{}{%
+        {{hash=06a551b8b8628676497d6b5c529b494b}{%
+           family={Cassol},
+           familyi={C\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{06a551b8b8628676497d6b5c529b494b}
+      \strng{fullhash}{06a551b8b8628676497d6b5c529b494b}
+      \strng{fullhashraw}{06a551b8b8628676497d6b5c529b494b}
+      \strng{bibnamehash}{06a551b8b8628676497d6b5c529b494b}
+      \strng{authorbibnamehash}{06a551b8b8628676497d6b5c529b494b}
+      \strng{authornamehash}{06a551b8b8628676497d6b5c529b494b}
+      \strng{authorfullhash}{06a551b8b8628676497d6b5c529b494b}
+      \strng{authorfullhashraw}{06a551b8b8628676497d6b5c529b494b}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.ifsc.edu.br/web/ifsc-verifica/w/quais-os-impactos-do-chatgpt-e-da-inteligencia-artificial-na-educacao}}
+      \field{note}{Accessed: 26/06/2024}
+      \field{title}{Quais os impactos do ChatGPT e da Inteligência Artificial na Educação?}
+      \field{year}{2023}
+    \endentry
+    \entry{ep2023}{misc}{}{1}
+      \name{author}{1}{}{%
+        {{hash=078401532866081dddda6744220b4c75}{%
+           family={EP},
+           familyi={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{078401532866081dddda6744220b4c75}
+      \strng{fullhash}{078401532866081dddda6744220b4c75}
+      \strng{fullhashraw}{078401532866081dddda6744220b4c75}
+      \strng{bibnamehash}{078401532866081dddda6744220b4c75}
+      \strng{authorbibnamehash}{078401532866081dddda6744220b4c75}
+      \strng{authornamehash}{078401532866081dddda6744220b4c75}
+      \strng{authorfullhash}{078401532866081dddda6744220b4c75}
+      \strng{authorfullhashraw}{078401532866081dddda6744220b4c75}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.europarl.europa.eu/thinktank/en/document/EPRS_BRI(2021)698792}}
+      \field{note}{Accessed: 29/07/2024}
+      \field{title}{EU AI Act: first regulation on artificial intelligence}
+      \field{year}{2023}
+    \endentry
+    \entry{ibm2023}{misc}{}{1}
+      \name{author}{1}{}{%
+        {{hash=cbf44511d041dc6d1dd73cc0c033122c}{%
+           family={IBM},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{fullhash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{fullhashraw}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{bibnamehash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{authorbibnamehash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{authornamehash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{authorfullhash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{authorfullhashraw}{cbf44511d041dc6d1dd73cc0c033122c}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.ibm.com/br-pt/topics/ai-bias}}
+      \field{note}{Accessed: 29/06/2024}
+      \field{title}{O que é viés de IA?}
+      \field{year}{2023}
+    \endentry
+    \entry{kpmg2024}{misc}{}{1}
+      \name{author}{1}{}{%
+        {{hash=4544eb2d4cb5dd50a18a6a396cc2eb5d}{%
+           family={KPMG},
+           familyi={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{4544eb2d4cb5dd50a18a6a396cc2eb5d}
+      \strng{fullhash}{4544eb2d4cb5dd50a18a6a396cc2eb5d}
+      \strng{fullhashraw}{4544eb2d4cb5dd50a18a6a396cc2eb5d}
+      \strng{bibnamehash}{4544eb2d4cb5dd50a18a6a396cc2eb5d}
+      \strng{authorbibnamehash}{4544eb2d4cb5dd50a18a6a396cc2eb5d}
+      \strng{authornamehash}{4544eb2d4cb5dd50a18a6a396cc2eb5d}
+      \strng{authorfullhash}{4544eb2d4cb5dd50a18a6a396cc2eb5d}
+      \strng{authorfullhashraw}{4544eb2d4cb5dd50a18a6a396cc2eb5d}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://kpmg.com/br/pt/home/insights/2023/12/desafio-privacidade-mundo-crescente-uso-ia.html}}
+      \field{note}{Accessed: 29/07/2024}
+      \field{title}{O desafio da privacidade em um mundo com crescente uso de IA}
+      \field{year}{2024}
+    \endentry
+    \entry{lopes2024}{misc}{}{1}
+      \name{author}{1}{}{%
+        {{hash=04a0e3d8da5e4592c9e93379d1a4670a}{%
+           family={Lopes},
+           familyi={L\bibinitperiod},
+           given={André},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{04a0e3d8da5e4592c9e93379d1a4670a}
+      \strng{fullhash}{04a0e3d8da5e4592c9e93379d1a4670a}
+      \strng{fullhashraw}{04a0e3d8da5e4592c9e93379d1a4670a}
+      \strng{bibnamehash}{04a0e3d8da5e4592c9e93379d1a4670a}
+      \strng{authorbibnamehash}{04a0e3d8da5e4592c9e93379d1a4670a}
+      \strng{authornamehash}{04a0e3d8da5e4592c9e93379d1a4670a}
+      \strng{authorfullhash}{04a0e3d8da5e4592c9e93379d1a4670a}
+      \strng{authorfullhashraw}{04a0e3d8da5e4592c9e93379d1a4670a}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://exame.com/inteligencia-artificial/1-em-cada-3-profissionais-no-mundo-usa-chatgpt-no-trabalho-aponta-pesquisa/}}
+      \field{note}{Accessed: 30/06/2024}
+      \field{title}{1 em 3 profissionais no mundo usa ChatGPT no trabalho, aponta pesquisa}
+      \field{year}{2024}
+    \endentry
     \entry{MIT}{misc}{}{1}
       \name{author}{1}{}{%
         {{hash=7abc1a233092fc104c7af72a89c0829c}{%
@@ -77,7 +206,7 @@
       \field{title}{How ChatGPT Works: A Non-Technical Primer}
       \field{year}{2023}
     \endentry
-    \entry{OpenAI}{misc}{}{1}
+    \entry{OpenAI}{misc}{}{2}
       \name{author}{1}{}{%
         {{hash=0523b13262b12c215d8009938f5c14f1}{%
            family={OpenAI},
@@ -101,6 +230,33 @@
       \field{note}{Accessed: 25/02/2024}
       \field{title}{What is ChatGPT?}
       \field{year}{2024}
+    \endentry
+    \entry{prado2023}{misc}{}{1}
+      \name{author}{1}{}{%
+        {{hash=364217a8ab7e80ad23c9f55900c97197}{%
+           family={Prado},
+           familyi={P\bibinitperiod},
+           given={Carol},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{364217a8ab7e80ad23c9f55900c97197}
+      \strng{fullhash}{364217a8ab7e80ad23c9f55900c97197}
+      \strng{fullhashraw}{364217a8ab7e80ad23c9f55900c97197}
+      \strng{bibnamehash}{364217a8ab7e80ad23c9f55900c97197}
+      \strng{authorbibnamehash}{364217a8ab7e80ad23c9f55900c97197}
+      \strng{authornamehash}{364217a8ab7e80ad23c9f55900c97197}
+      \strng{authorfullhash}{364217a8ab7e80ad23c9f55900c97197}
+      \strng{authorfullhashraw}{364217a8ab7e80ad23c9f55900c97197}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://g1.globo.com/pop-arte/noticia/2023/04/11/chatgpt-e-direito-autoral-entenda-a-treta-juridica-que-ronda-a-relacao-entre-inteligencia-artificial-e-arte.ghtml}}
+      \field{note}{Accessed: 23/06/2024}
+      \field{title}{ChatGPT e direito autoral: Entenda a treta jurídica que ronda a relação entre inteligência artificial e arte}
+      \field{year}{2023}
     \endentry
     \entry{towardsdatascience}{misc}{}{1}
       \name{author}{1}{}{%
@@ -127,6 +283,60 @@
       \field{howpublished}{\url{https://towardsdatascience.com/how-chatgpt-works-the-models-behind-the-bot-1ce5fca96286}}
       \field{note}{Accessed: 25/02/2024}
       \field{title}{How ChatGPT Works: The Model Behind The Bot}
+      \field{year}{2023}
+    \endentry
+    \entry{sutto2023}{misc}{}{1}
+      \name{author}{1}{}{%
+        {{hash=4d8bf81b01a99ade0dcbc13376b11c80}{%
+           family={Sutto},
+           familyi={S\bibinitperiod},
+           given={Giovanna},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{4d8bf81b01a99ade0dcbc13376b11c80}
+      \strng{fullhash}{4d8bf81b01a99ade0dcbc13376b11c80}
+      \strng{fullhashraw}{4d8bf81b01a99ade0dcbc13376b11c80}
+      \strng{bibnamehash}{4d8bf81b01a99ade0dcbc13376b11c80}
+      \strng{authorbibnamehash}{4d8bf81b01a99ade0dcbc13376b11c80}
+      \strng{authornamehash}{4d8bf81b01a99ade0dcbc13376b11c80}
+      \strng{authorfullhash}{4d8bf81b01a99ade0dcbc13376b11c80}
+      \strng{authorfullhashraw}{4d8bf81b01a99ade0dcbc13376b11c80}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.infomoney.com.br/carreira/chatgpt-e-vilao-ou-oportunidade-no-mundo-do-trabalho/}}
+      \field{note}{Accessed: 31/06/2024}
+      \field{title}{ChatGPT é vilão ou oportunidade no mundo do trabalho?}
+      \field{year}{2023}
+    \endentry
+    \entry{suzuki2023}{misc}{}{1}
+      \name{author}{1}{}{%
+        {{hash=498fd67a557059fb711e70c9c2c961a3}{%
+           family={Suzuki},
+           familyi={S\bibinitperiod},
+           given={Shin},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{498fd67a557059fb711e70c9c2c961a3}
+      \strng{fullhash}{498fd67a557059fb711e70c9c2c961a3}
+      \strng{fullhashraw}{498fd67a557059fb711e70c9c2c961a3}
+      \strng{bibnamehash}{498fd67a557059fb711e70c9c2c961a3}
+      \strng{authorbibnamehash}{498fd67a557059fb711e70c9c2c961a3}
+      \strng{authornamehash}{498fd67a557059fb711e70c9c2c961a3}
+      \strng{authorfullhash}{498fd67a557059fb711e70c9c2c961a3}
+      \strng{authorfullhashraw}{498fd67a557059fb711e70c9c2c961a3}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.bbc.com/portuguese/geral-64297796}}
+      \field{note}{Accessed: 24/06/2024}
+      \field{title}{O que é ChatGPT e por que alguns o veem como ameaça}
       \field{year}{2023}
     \endentry
   \enddatalist

@@ -160,3 +160,18 @@ ysep=0.2em,transform shape,line width=0.05em,top color=red,bottom color=red!50!b
 \usepackage{array}
 \usepackage{longtable}
 \usepackage{makecell} 
+
+\usepackage[most]{tcolorbox}
+\tcbset{
+    myoutputstyle/.style={
+        colback=blue!10,
+        colframe=blue!60!black,
+        boxrule=0.5pt,
+        left=3mm,
+        right=3mm,
+        top=2mm,
+        bottom=2mm,
+        width=0.9\linewidth,
+        enlarge left by=0.05\linewidth,
+    }
+}

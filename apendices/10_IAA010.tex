@@ -8,4 +8,112 @@ da modelagem necessária dependendo dos modelos de dados empregados.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{\textbf{B - RESOLUÇÃO}}
-\lipsum[30]
+
+\begin{center}
+\textbf{\large Implementação de uma aplicação de Big Data} \\[0.5em]
+\textbf{Análise de dados públicos de CNPJ para análise de compliance, cálculo de marketshare e vendas}
+\end{center}
+
+\subsection*{\textbf{1 Contexto}}
+
+A crescente complexidade do ambiente de negócios exige soluções inovadoras para a gestão de dados. Soluções baseadas em big data permitem extrair, refinar, armazenar e rotular dados de várias fontes e com as garantias de qualidade para que os negócios as utilizem.
+
+O impacto da utilização dessas tecnologias é tao grande, que as empresas líderes no uso de big data tem maior probabilidade de serem líderes em seu setor e de superar seus concorrentes \cite{mcafee2012big}. 
+
+A utilização de informações públicas confere uma vantagem competitiva significativa às empresas. Ao acessar dados precisos e atualizados sobre o mercado, as organizações podem identificar novas oportunidades de negócio, personalizar suas estratégias de marketing e otimizar seus processos de vendas. Além disso, a análise de informações públicas permite antecipar tendências de mercado, reduzir riscos e tomar decisões mais assertivas.
+
+Este estudo de caso explora a criação de uma estrutura de big data, utilizando Hadoop, para extrair informações referentes as empresas brasileiras, disponibilizadas pela Receita Federal.
+
+A estruturação da pipeline de dados e a criação de um data lake servirá como fonte única e confiável de informações para toda a organização. Ao eliminar a necessidade de coletar dados de diversas fontes e realizar processos manuais, a solução proposta proporciona uma significativa redução de custos e um aumento da agilidade nas tomadas de decisão.
+
+Após o devido processamento dessas informações, teremos uma gama interessante de dados das empresas brasileiras (CNPJ, status, data de abertura, CNAEs, endereço, contatos, sócios) e serão possíveis, dentre muitas outras aplicabilidades, aplicações em 3 focos distintos: análises de compliance de fornecedores, cálculo de market share e execução de campanhas de vendas.
+
+
+\subsubsection*{1.1 Análises de Compliance de Fornecedores}
+Tendo informações do quadro societário das empresas fornecedoras, pode-se realizar análises referentes a PLDFT (Prevenção a Lavagem de Dinheiro e Financiamento ao Terrorismo). Alguns exemplos de listas restritivas que podem ser analisadas: 
+
+\begin{itemize}
+    \item \textbf{PEP:} Apresenta Pessoas Politicamente Expostas (PEP), ou seja, alguém que ocupa, ou ocupou nos últimos anos, um cargo público importante. Devido à sua posição de poder e influência, essas pessoas são consideradas mais suscetíveis a atos de corrupção, como lavagem de dinheiro e suborno.
+    \item \textbf{OFAC:} Apresenta empresas, entidades e pessoas físicas com envolvimento direto ou relação com grupos de terroristas e narcotraficantes.  
+\end{itemize}
+
+\subsubsection*{1.2 Cálculo Market Share}
+Com as informações de CNPJ, status, CNAE e data de abertura é possível calcular quantas das empresas possivelmente clientes (CNAE, localização...) fazem parte da sua carteira e quantas não, chegando a um cálculo preciso e dinâmico do Market Share. 
+
+\subsubsection*{1.3 Execução de Campanhas de Vendas}
+Entendo quem é e, principalmente, quem não é cliente da sua carteira, é possível utilizar os contatos para campanhas de vendas. Além de utilizar outras informações da empresa para qualificar o lead dentro do funil de vendas.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{\textbf{2 Caracterização dos Dados}}
+Os dados usados neste estudo vêm da base pública da Receita Federal de CNPJs. Tal base contém diversos dados de empresas, porém para nosso estudo de caso focamos somente em dados como nome da empresa, CNPJ, região, data de abertura, sócios, e dados de contato.
+
+
+\subsubsection*{2.1 Os V's de Big Data}
+
+\begin{itemize}
+    \item \textbf{Volume:} A base de dados de CNPJs inclui milhões de registros de empresas em todo o Brasil, o que justifica o uso de Hadoop para processar grandes volumes de dados.
+    \item \textbf{Velocidade:} A análise de compliance e cálculo de market share exigem o processamento em tempo hábil para que as decisões possam ser tomadas rapidamente.
+    \item \textbf{Variedade:} A base de dados da Receita Federal contém diferentes tipos de informações que variam entre dados estruturados (como CNPJ, nome da empresa e data de abertura) e semi-estruturados (como os dados de contato e a relação de sócios). 
+    \item \textbf{Veracidade:} A precisão e a confiabilidade dos dados são fundamentais para garantir que as análises, como as de compliance de fornecedores, sejam seguras e sem falhas. Informações incorretas sobre o quadro societário ou o status de uma empresa podem levar a decisões erradas, como a seleção de fornecedores inadequados ou a análise errada do market share. Assim, a limpeza e verificação dos dados antes do processamento são etapas essenciais.
+    \item \textbf{Valor:} O valor gerado a partir desses dados está diretamente relacionado à capacidade da empresa em usá-los para otimizar suas operações e aumentar a competitividade. Ao identificar novos leads e fazer cálculos precisos de market share, a empresa consegue traçar estratégias de vendas mais eficientes e aumentar sua receita.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{\textbf{3 Pipeline de Processamento}}
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}[node distance=2cm, auto]
+        \tikzstyle{proc} = [rectangle, draw, fill=blue!20, text centered, minimum width=2.5cm, minimum height=1cm]
+        %\tikzstyle{pipeline} = [rectangle, draw, fill=gray!20, text centered, minimum width=7cm, minimum height=6cm]
+        \tikzstyle{arrow} = [->, thick]
+
+        \node (base) [proc] {Base pública de CNPJs};
+
+        %\node (etl) [pipeline, below of=base, node distance=3cm] {};
+        
+        \node (extracao) [proc, below of=base] {Extração Python};
+        \node (dataLake) [proc, below of=extracao] {Data Lake Hadoop};
+        \node (processamento) [proc, below of=dataLake] {Processamento Hadoop};
+        
+        \node (relatorios) [proc, below of=processamento] {Análise e Relatórios};
+
+        \draw[arrow] (base) -- (extracao);
+        %\draw[arrow] (etl) -- (extracao);
+        \draw[arrow] (extracao) -- (dataLake);
+        \draw[arrow] (dataLake) -- (processamento);
+        \draw[arrow] (processamento) -- (relatorios);
+
+        %\node[fit={(extracao) (dataLake) (processamento)}, draw, dashed, blue, label={Pipeline de Processamento}] {};
+        \node[fit={(extracao) (dataLake) (processamento)}, draw, dashed, blue, inner sep=10pt, label={[xshift=2mm]right:{Pipeline}}] {};
+
+
+    \end{tikzpicture}
+    \caption{Pipeline de Processamento}
+    \label{fig:architecture}
+\end{figure}
+
+\subsubsection*{3.1 Extração}
+Os dados são extraídos diretamente da base pública de CNPJs da Receita Federal. São utilizados scripts em Python para baixar os arquivos e em seguida realizar uma etapa de limpeza e transformação, que inclui o tratamento de dados ausentes, a padronização de formatos e a remoção de registros duplicados. O objetivo é garantir que os dados estejam prontos para serem analisados e armazenados no Data Lake.
+
+\subsubsection*{3.2 Data Lake}
+Os dados transformados são organizados em um Data Lake no Hadoop, o que permite o armazenamento de grandes volumes de dados de maneira escalável. 
+
+\subsubsection*{3.3 Processamento com Hadoop}
+A etapa de processamento dos dados é realizada utilizando o MapReduce no Hadoop. Este modelo de processamento distribui as tarefas de maneira eficiente, permitindo que grandes volumes de dados sejam analisados em paralelo. No contexto deste estudo de caso, o MapReduce é utilizado para realizar cálculos complexos, como:
+
+\begin{itemize}
+    \item Análises de compliance de fornecedores, cruzando informações do quadro societário com listas restritivas.
+    \item Cálculo dinâmico do market share, considerando a quantidade de empresas em diferentes setores e regiões.
+    \item Otimização das campanhas de vendas, identificando leads potenciais a partir dos dados de contato e características das empresas.
+\end{itemize}
+
+\subsubsection*{3.4 Ferramentas utilizadas}
+\begin{itemize}
+    \item \textbf{Hadoop:} Armazenamento e processamento distribuído.
+    \item \textbf{Python:} Scripts de coleta e transformação dos dados.
+    \item \textbf{Pandas:} Análise antes de enviar os dados ao cluster Hadoop.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{\textbf{4 Conclusão}}
+A implementação deste pipeline utilizando Hadoop e Python possibilitou o processamento eficiente de grandes volumes de dados públicos da Receita Federal, oferecendo uma solução escalável e robusta para lidar com a complexidade e o volume de dados empresariais. A utilização do MapReduce permitiu a distribuição das tarefas de processamento, garantindo agilidade e precisão nas análises de compliance, cálculo de market share e otimização de campanhas de vendas.

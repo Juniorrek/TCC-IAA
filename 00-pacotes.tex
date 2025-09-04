@@ -142,7 +142,6 @@
 \usepackage{float}
 \usepackage{changepage}
 \usepackage{tabularx}
-\usepackage{listings}
 \usepackage[dvipsnames,table]{xcolor}
 
 \usepackage{tikz}
@@ -174,4 +173,49 @@ ysep=0.2em,transform shape,line width=0.05em,top color=red,bottom color=red!50!b
         width=0.9\linewidth,
         enlarge left by=0.05\linewidth,
     }
+}
+
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{red},
+  showstringspaces=false,
+  breaklines=true,
+  frame=single,
+  language=Python
+}
+\lstdefinestyle{output}{
+  basicstyle=\small\ttfamily,
+  numbers=none,
+  frame=tblr,
+  columns=fullflexible,
+  backgroundcolor=\color{blue!10},             
+  keepspaces=true,   
+  linewidth=0.9\linewidth,
+  xleftmargin=0.1\linewidth,
+  %basicstyle=\ttfamily\scriptsize,
+  breaklines=true,
+    inputencoding=utf8,
+    extendedchars=true,
+    literate={ç}{{\c{c}}}1 {ã}{{\~a}}1 {õ}{{\~o}}1 {é}{{\'e}}1 {ê}{{\^e}}1 {á}{{\'a}}1 {ó}{{\'o}}1 {í}{{\'i}}1 {â}{{\^a}}1 {ú}{{\'u}}1 {à}{{\`a}}1 {¿}{{\textquestiondown}}1 {ñ}{{\~n}}1 {ô}{{\^o}}1
+}
+\lstdefinestyle{input}{
+  %language=bash,
+  %firstline=2,% Supress the first line that begins with `%`
+  basicstyle=\small\sffamily,
+  %numbers=left,
+  numbers=none,
+  numberstyle=\tiny,
+  numbersep=3pt,
+  frame=tb,      
+  keepspaces=true,   
+  columns=fullflexible,
+  backgroundcolor=\color{yellow!20},
+  linewidth=0.9\linewidth,
+  xleftmargin=0.1\linewidth,
+    inputencoding=utf8,
+    extendedchars=true,
+    literate={ç}{{\c{c}}}1 {ã}{{\~a}}1 {õ}{{\~o}}1 {é}{{\'e}}1 {ê}{{\^e}}1 {á}{{\'a}}1 {ó}{{\'o}}1 {í}{{\'i}}1 {â}{{\^a}}1 {ú}{{\'u}}1 {à}{{\`a}}1 {¿}{{\textquestiondown}}1 {ñ}{{\~n}}1 {ô}{{\^o}}1
 }

@@ -17,7 +17,9 @@ alguns valores do modelo não contêm as informações do tamanho do motor, este
 dados originais da tabela FIPE.
 
 \textbf{Metadados:}
-\begin{center}
+\begin{table}[H]
+\centering
+\caption{Metadados da Tabela FIPE}
 \begin{tabular}{|p{0.4\textwidth}|p{0.55\textwidth}|}
 \hline
 \textbf{Nome do campo} & \textbf{Descrição} \\
@@ -45,7 +47,8 @@ year\_model & Ano do modelo (pode ser diferente do ano de fabricação) \\
 avg\_price & Preço médio do carro em reais \\
 \hline
 \end{tabular}
-\end{center}
+\caption*{Fonte: IAA UFPR (2024).}
+\end{table}
 
 
 
@@ -155,9 +158,14 @@ dados = pd.read_csv('precos_carros_brasil.csv')
 dados.head()
 \end{lstlisting}
 
+
 \begin{table}[H]
 \centering
-\resizebox{\textwidth}{!}{ % scales table to fit page width
+\begin{tcolorbox}[myoutputstyle, width=1.1\textwidth, enlarge left by=-1cm]
+%\resizebox{\textwidth}{!}{ % scales table to fit page width
+\renewcommand{\arraystretch}{1.2} % more vertical space in rows
+\setlength{\tabcolsep}{6pt} % adjust horizontal padding between columns
+\resizebox{0.95\textwidth}{!}{
 \begin{tabular}{lllllllllll}
 \textbf{year\_ref} & \textbf{month} & \textbf{fipe\_code} & \textbf{auth} & \textbf{brand} & \textbf{model} & \textbf{fuel} & \textbf{gear} & \textbf{engine} & \textbf{year} & \textbf{price} \\
 \hline
@@ -168,6 +176,7 @@ dados.head()
 2021.0 & January & 004003-7 & g15wg0gbz1fx & GM - Chevrolet & Corsa Pick-Up GL/ Champ 1.6 MPFI / EFI & Gasoline & manual & 1.6 & 2001.0 & 12525.0 \\
 \end{tabular}
 }
+\end{tcolorbox}
 %\caption{Sample data output from DataFrame}
 \end{table}
 
@@ -249,6 +258,7 @@ dados[numericas_cols].describe()
 \end{lstlisting}
 \begin{table}[H]
 \centering
+\begin{tcolorbox}[myoutputstyle]
 \begin{tabular}{lrrr}
 \hline
  & \textbf{year\_of\_reference} & \textbf{year\_model} & \textbf{avg\_price\_brl} \\
@@ -263,8 +273,9 @@ min  & 2021.000000 & 2000.000000 & 6647.000000 \\
 max  & 2023.000000 & 2023.000000 & 979358.000000 \\
 \hline
 \end{tabular}
+\end{tcolorbox}
 %\caption{Descriptive statistics for vehicle data}
-\label{tab:vehicle_stats}
+%\label{tab:vehicle_stats}
 \end{table}
 
 \begin{adjustwidth}{1em}{}
@@ -321,8 +332,9 @@ plt.xlabel('Marca')
 \end{lstlisting}
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\linewidth]{apendices/fig/2_IAA002_1.png}
 \caption{Distribuição de carros por marca}
+\includegraphics[width=1\linewidth]{apendices/fig/2_IAA002_1.png}
+\caption*{Fonte: O autor (2024).}
 \end{figure}
 
 \begin{adjustwidth}{1em}{}
@@ -338,8 +350,9 @@ plt.xlabel('Tipo de engrenagem (marcha)')
 \end{lstlisting}
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\linewidth]{apendices/fig/2_IAA002_2.png}
 \caption{Distribuição de carros por engrenagem (marcha)}
+\includegraphics[width=1\linewidth]{apendices/fig/2_IAA002_2.png}
+\caption*{Fonte: O autor (2024).}
 \end{figure}
 
 \begin{adjustwidth}{1em}{}
@@ -363,6 +376,7 @@ df_media_precos_mes.head(12)
 \end{lstlisting}
 \begin{table}[H]
 \centering
+\begin{tcolorbox}[myoutputstyle]
 \begin{tabular}{rrrrl}
 \hline
 \textbf{Index} & \textbf{Order} & \textbf{Year} & \textbf{Month} & \textbf{Average Price (BRL)} \\
@@ -381,8 +395,9 @@ df_media_precos_mes.head(12)
 2 & 11 & 2022.0 & December & 57997.0 \\
 \hline
 \end{tabular}
+\end{tcolorbox}
 %\caption{Average monthly vehicle prices in 2022}
-\label{tab:avg_price_2022}
+%\label{tab:avg_price_2022}
 \end{table}
 \begin{lstlisting}[language=Python, style=input]
 # Visualizando a média salarial por ano
@@ -393,8 +408,9 @@ plt.xticks(rotation=45);
 \end{lstlisting}
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\linewidth]{apendices/fig/2_IAA002_3.png}
 \caption{Evolução da média de preço dos carros ao longo dos meses de 2022}
+\includegraphics[width=1\linewidth]{apendices/fig/2_IAA002_3.png}
+\caption*{Fonte: O autor (2024).}
 \end{figure}
 
 
@@ -414,8 +430,9 @@ sns.barplot(x='brand', y='avg_price_brl', hue='gear', data=dados, hue_order=['ma
 \end{lstlisting}
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\linewidth]{apendices/fig/2_IAA002_4.png}
 \caption{Distribuição da média de preço dos carros por marca e tipo de engrenagem}
+\includegraphics[width=1\linewidth]{apendices/fig/2_IAA002_4.png}
+\caption*{Fonte: O autor (2024).}
 \end{figure}
 
 \begin{adjustwidth}{1em}{}
@@ -439,8 +456,9 @@ sns.barplot(x='brand', y='avg_price_brl', hue='fuel', data=dados, hue_order=['Di
 \end{lstlisting}
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\linewidth]{apendices/fig/2_IAA002_5.png}
 \caption{Distribuição da média de preço dos carros por marca e tipo de combustível}
+\includegraphics[width=1\linewidth]{apendices/fig/2_IAA002_5.png}
+\caption*{Fonte: O autor (2024).}
 \end{figure}
 
 \begin{adjustwidth}{1em}{}
@@ -464,8 +482,9 @@ sns.boxplot(dados['avg_price_brl']).set_title("Distribuição dos preços dos ca
 \end{lstlisting}
 \begin{figure}[H]
 \centering
-\includegraphics[width=.8\linewidth]{apendices/fig/2_IAA002_6.png}
 \caption{Distribuição dos preços dos carros}
+\includegraphics[width=.8\linewidth]{apendices/fig/2_IAA002_6.png}
+\caption*{Fonte: O autor (2024).}
 \end{figure}
 \begin{lstlisting}[language=Python, style=input]
 # Transformação da coluna modelo (model) de categórica para numérica
@@ -481,7 +500,11 @@ dados.head()
 \end{lstlisting}
 \begin{table}[H]
 \centering
-\resizebox{\textwidth}{!}{
+\begin{tcolorbox}[myoutputstyle, width=1.1\textwidth, enlarge left by=-1cm]
+%\resizebox{\textwidth}{!}{ % scales table to fit page width
+\renewcommand{\arraystretch}{1.2} % more vertical space in rows
+\setlength{\tabcolsep}{6pt} % adjust horizontal padding between columns
+\resizebox{0.95\textwidth}{!}{
 \begin{tabular}{rrrrllllllll}
 \hline
 \textbf{ID} & \textbf{Year} & \textbf{Month} & \textbf{FIPE Code} & \textbf{Auth} & \textbf{Brand} & \textbf{Model} & \textbf{Fuel} & \textbf{Gear} & \textbf{Engine} & \textbf{Year Model} & \textbf{Avg. Price (BRL)} \\
@@ -494,8 +517,9 @@ dados.head()
 \hline
 \end{tabular}
 }
+\end{tcolorbox}
 %\caption{Vehicle data with numeric codes for fuel and gear types}
-\label{tab:vehicle_data_encoded}
+%\label{tab:vehicle_data_encoded}
 \end{table}
 \begin{lstlisting}[language=Python, style=input]
 # Variável dados_num contém apenas variáveis numéricas de interesse (exclui o restante)
@@ -507,8 +531,9 @@ plt.show()
 \end{lstlisting}
 \begin{figure}[H]
 \centering
-\includegraphics[width=.8\linewidth]{apendices/fig/2_IAA002_7.png}
 \caption{Mapa de Correlação das Variáveis Numéricas}
+\includegraphics[width=.8\linewidth]{apendices/fig/2_IAA002_7.png}
+\caption*{Fonte: O autor (2024).}
 \end{figure}
 \begin{lstlisting}[language=Python, style=input]
 # Variável X contém apenas variáveis numéricas de interesse para a análise, excluindo a variável target 
@@ -600,6 +625,7 @@ feature_importances_rf
 \end{lstlisting}
 \begin{table}[H]
 \centering
+\begin{tcolorbox}[myoutputstyle]
 \begin{tabular}{lr}
 \hline
 \textbf{Feature} & \textbf{Importance} \\
@@ -610,8 +636,9 @@ fuel       & 0.179241 \\
 gear       & 0.022315 \\
 \hline
 \end{tabular}
+\end{tcolorbox}
 %\caption{Feature importance values}
-\label{tab:feature_importance}
+%\label{tab:feature_importance}
 \end{table}
 
 
@@ -623,6 +650,7 @@ feature_importances_rf_param
 \end{lstlisting}
 \begin{table}[H]
 \centering
+\begin{tcolorbox}[myoutputstyle]
 \begin{tabular}{lr}
 \hline
 \textbf{Feature} & \textbf{Importance} \\
@@ -633,8 +661,9 @@ fuel        & 0.178231 \\
 gear        & 0.022155 \\
 \hline
 \end{tabular}
+\end{tcolorbox}
 %\caption{Updated feature importance values}
-\label{tab:updated_feature_importance}
+%\label{tab:updated_feature_importance}
 \end{table}
 
 
@@ -646,6 +675,7 @@ feature_importances_x
 \end{lstlisting}
 \begin{table}[H]
 \centering
+\begin{tcolorbox}[myoutputstyle]
 \begin{tabular}{lr}
 \hline
 \textbf{Feature} & \textbf{Importance} \\
@@ -656,8 +686,9 @@ model       & 0.088919 \\
 gear        & 0.050917 \\
 \hline
 \end{tabular}
+\end{tcolorbox}
 %\caption{Feature importance values (latest version)}
-\label{tab:feature_importance_latest}
+%\label{tab:feature_importance_latest}
 \end{table}
 
 

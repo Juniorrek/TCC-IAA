@@ -207,6 +207,7 @@ dados
 
 \begin{table}[H]
 \centering
+\caption{Frases com seus respectivos idiomas}
 \begin{tabular}{|c|p{9cm}|c|}
 \hline
 \textbf{ID} & \textbf{Frase} & \textbf{Idioma} \\
@@ -227,7 +228,7 @@ dados
 \hline
 \end{tabular}
 \vspace{0.5em}
-\caption{Frases com seus respectivos idiomas}
+\caption*{Fonte: O autor (2024).}
 \label{tab:frases_idiomas}
 \end{table}
 
@@ -445,7 +446,12 @@ df.describe()
 
 \begin{table}[H]
 \centering
-\begin{adjustbox}{width=\textwidth}
+%\begin{adjustbox}{width=\textwidth}
+\begin{tcolorbox}[myoutputstyle, width=1.1\textwidth, enlarge left by=-1cm]
+%\resizebox{\textwidth}{!}{ % scales table to fit page width
+\renewcommand{\arraystretch}{1.2} % more vertical space in rows
+\setlength{\tabcolsep}{6pt} % adjust horizontal padding between columns
+\resizebox{0.95\textwidth}{!}{
 \begin{tabular}{|l|rrrrrrr|}
 \hline
 \textbf{Stat} & \textbf{age} & \textbf{anaemia} & \textbf{creatinine\_phosphokinase} & \textbf{diabetes} & \textbf{ejection\_fraction} & \textbf{high\_blood\_pressure} & \textbf{platelets} \\
@@ -460,14 +466,21 @@ min & 40.000 & 0.000 & 23.000 & 0.000 & 14.000 & 0.000 & 25100.000 \\
 max & 95.000 & 1.000 & 7861.000 & 1.000 & 80.000 & 1.000 & 850000.000 \\
 \hline
 \end{tabular}
-\end{adjustbox}
+%\end{adjustbox}
+}
+\end{tcolorbox}
 %\caption{Descriptive statistics (Part 1)}
-\label{tab:heart_stats_part1}
+%\label{tab:heart_stats_part1}
 \end{table}
 
 \begin{table}[H]
 \centering
-\begin{adjustbox}{width=\textwidth}
+%\begin{adjustbox}{width=\textwidth}
+\begin{tcolorbox}[myoutputstyle, width=1.1\textwidth, enlarge left by=-1cm]
+%\resizebox{\textwidth}{!}{ % scales table to fit page width
+\renewcommand{\arraystretch}{1.2} % more vertical space in rows
+\setlength{\tabcolsep}{6pt} % adjust horizontal padding between columns
+\resizebox{0.95\textwidth}{!}{
 \begin{tabular}{|l|rrrrrr|}
 \hline
 \textbf{Stat} & \textbf{serum\_creatinine} & \textbf{serum\_sodium} & \textbf{sex} & \textbf{smoking} & \textbf{time} & \textbf{DEATH\_EVENT} \\
@@ -482,9 +495,11 @@ min & 0.500 & 113.000 & 0.000 & 0.000 & 4.000 & 0.000 \\
 max & 9.400 & 148.000 & 1.000 & 1.000 & 285.000 & 1.000 \\
 \hline
 \end{tabular}
-\end{adjustbox}
+}
+\end{tcolorbox}
+%\end{adjustbox}
 %\caption{Descriptive statistics (Part 2)}
-\label{tab:heart_stats_part2}
+%\label{tab:heart_stats_part2}
 \end{table}
 
 
@@ -498,8 +513,9 @@ sns.heatmap(corr,
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\linewidth]{apendices/fig/6_IAA006_1.png}
 \caption{Mapa de correlação dados clínicos}
+\includegraphics[width=1\linewidth]{apendices/fig/6_IAA006_1.png}
+\caption*{Fonte: O autor (2024).}
 \end{figure}
 
 

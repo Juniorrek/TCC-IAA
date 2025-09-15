@@ -208,8 +208,9 @@ plt.legend()
 \end{lstlisting}
 \begin{figure}[H]
 \centering
-\includegraphics[width=.8\linewidth]{apendices/fig/13_IAA012_1.png}
 \caption{Função de perda - Fashion MNIST}
+\includegraphics[width=.8\linewidth]{apendices/fig/13_IAA012_1.png}
+\caption*{Fonte: O autor (2024).}
 \end{figure}
 \subsubsection*{Breve explicação gráfico de perda}
 A linha azul 'loss' representa a função de perda no conjunto de treinamento, ou seja, o quão ruim as previsões foram nesse conjunto em relação aos valores verdadeiros. Já a linha laranja 'val\_loss' mostra a perda no conjunto de validação. A perda diminui gradualmente mostrando que a rede está convergindo para melhores resultados conforme vai sendo treinada.
@@ -221,8 +222,9 @@ plt.legend()
 \end{lstlisting}
 \begin{figure}[H]
 \centering
-\includegraphics[width=.8\linewidth]{apendices/fig/13_IAA012_2.png}
 \caption{Acurácia - Fashion MNIST}
+\includegraphics[width=.8\linewidth]{apendices/fig/13_IAA012_2.png}
+\caption*{Fonte: O autor (2024).}
 \end{figure}
 \subsubsection*{Breve explicação gráfico de acurácia}
 A linha azul 'acc' representa a acurácia no conjunto de treinamento, ou seja, quantas foram as previsões corretas durante o treinamento. Já a linha laranja 'val\_acc' representa a acurária no conjunto de validação, mostrando como a rede generaliza para dados que não foram utilizados no treinamento. Ambas as acurárias aumentam gradativamente indicando que a rede está aprendendo e atinge um valor mais de 87\% oque é uma boa acurácia.
@@ -245,8 +247,9 @@ plot_confusion_matrix(conf_mat=cm, figsize=(7, 7),
 \end{lstlisting}
 \begin{figure}[H]
 \centering
-\includegraphics[width=.8\linewidth]{apendices/fig/13_IAA012_3.png}
 \caption{Matriz de confusão - Fashion MNIST}
+\includegraphics[width=.8\linewidth]{apendices/fig/13_IAA012_3.png}
+\caption*{Fonte: O autor (2024).}
 \end{figure}
 \subsubsection*{Mostrar algumas classificações erradas}
 \begin{lstlisting}[language=Python, style=input]
@@ -259,8 +262,9 @@ plt.title("True label: %s Predicted: %s" % (y_test[i], y_pred[i]))
 \end{lstlisting}
 \begin{figure}[H]
 \centering
-\includegraphics[width=.6\linewidth]{apendices/fig/13_IAA012_4.png}
 \caption{Classificação errada - Fashion MNIST}
+\includegraphics[width=.6\linewidth]{apendices/fig/13_IAA012_4.png}
+\caption*{Fonte: O autor (2024).}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -291,6 +295,7 @@ data.head()
 \begin{tcolorbox}[myoutputstyle]
 \begin{table}[H]
 \centering
+%\caption{Dataset - Wine Quality (parte 1)}
 \resizebox{\linewidth}{!}{%
 \begin{tabular}{c c c c c c}
 \hline
@@ -304,12 +309,12 @@ data.head()
 \hline
 \end{tabular}
 }
-\caption{Dataset - Wine Quality (parte 1)}
 \end{table}
 
 
 \begin{table}[H]
 \centering
+%\caption{Dataset - Wine Quality (parte 2)}
 \resizebox{\linewidth}{!}{%
 \begin{tabular}{c c c c c c c c}
 \hline
@@ -323,7 +328,6 @@ data.head()
 \hline
 \end{tabular}
 }
-\caption{Dataset - Wine Quality (parte 2)}
 \end{table}
 \end{tcolorbox}
 \begin{lstlisting}[language=Python, style=input]
@@ -353,8 +357,9 @@ plt.show()
 \end{lstlisting}
 \begin{figure}[H]
 \centering
-\includegraphics[width=.8\linewidth]{apendices/fig/13_IAA012_5.png}
 \caption{Distribuição dos dados - Wine quality}
+\includegraphics[width=.8\linewidth]{apendices/fig/13_IAA012_5.png}
+\caption*{Fonte: O autor (2024).}
 \end{figure}
 \begin{lstlisting}[language=Python, style=input]
 # Melhorar distribuição dos dados
@@ -461,8 +466,9 @@ plt.legend()
 \end{lstlisting}
 \begin{figure}[H]
 \centering
-\includegraphics[width=.8\linewidth]{apendices/fig/13_IAA012_6.png}
 \caption{Função de perda - Wine quality}
+\includegraphics[width=.8\linewidth]{apendices/fig/13_IAA012_6.png}
+\caption*{Fonte: O autor (2024).}
 \end{figure}
 \subsubsection*{Breve explicação gráfico loss}
 A linha azul 'loss' representa a função de perda no conjunto de treinamento, ou seja, o quão ruim as previsões foram nesse conjunto em relação aos valores verdadeiros. Já a linha laranja 'val\_loss' mostra a perda no conjunto de validação. A rede convergiu rapidamente para um baixo valor de perda, e depois se mantém quase constante com uma mínima variação, sugerindo que talvez possa ser diminuido o número de épocas no treinamento.
@@ -474,8 +480,9 @@ plt.legend()
 \end{lstlisting}
 \begin{figure}[H]
 \centering
-\includegraphics[width=.8\linewidth]{apendices/fig/13_IAA012_7.png}
 \caption{RMSE - Wine quality}
+\includegraphics[width=.8\linewidth]{apendices/fig/13_IAA012_7.png}
+\caption*{Fonte: O autor (2024).}
 \end{figure}
 
 \begin{lstlisting}[language=Python, style=input]
@@ -485,8 +492,9 @@ plt.legend()
 \end{lstlisting}
 \begin{figure}[H]
 \centering
-\includegraphics[width=.8\linewidth]{apendices/fig/13_IAA012_8.png}
 \caption{R2 - Wine quality}
+\includegraphics[width=.8\linewidth]{apendices/fig/13_IAA012_8.png}
+\caption*{Fonte: O autor (2024).}
 \end{figure}
 \subsubsection*{Predições}
 \begin{lstlisting}[language=Python, style=input]
@@ -718,8 +726,9 @@ plt.show()
 \end{lstlisting}
 \begin{figure}[H]
 \centering
-\includegraphics[width=.8\linewidth]{apendices/fig/13_IAA012_9.png}
 \caption{Função de perda - Base livros}
+\includegraphics[width=.8\linewidth]{apendices/fig/13_IAA012_9.png}
+\caption*{Fonte: O autor (2024).}
 \end{figure}
 \subsubsection*{Breve explicação gráfico de perda}
 A linha azul 'loss' representa a função de perda no conjunto de treinamento, ou seja, o quão ruim as previsões foram nesse conjunto em relação aos valores verdadeiros. Já a linha laranja 'val\_loss' mostra a perda no conjunto de validação. O modelo começa com uma perda alta e, aparentemente, aprende rapidamente no início, o que é indicado pela queda acentuada no início da curva azul. Após um certo ponto, a curva de validação (laranja) começa a se distanciar da curva de treinamento (azul), o que pode ser um sinal de overfitting. Ou seja, o modelo está começando a se ajustar excessivamente aos dados de treinamento, mas não generaliza bem para os dados de validação, resultando em uma perda crescente no conjunto de validação.
@@ -759,8 +768,9 @@ Esta prática contém uma implementação mínima do DeepDream, conforme descrit
 Vamos demonstrar como fazer uma rede neural "sonhar" e aprimorar os padrões surreais que ela vê em uma imagem.
 \begin{figure}[H]
 \centering
-\includegraphics[width=.8\linewidth]{apendices/fig/13_IAA012_10.png}
 \caption{Prática Deepdream}
+\includegraphics[width=.8\linewidth]{apendices/fig/13_IAA012_10.png}
+\caption*{Fonte: O autor (2024).}
 \end{figure}
 \subsubsection*{Importação das bibliotecas}
 \begin{lstlisting}[language=Python, style=input]
@@ -802,8 +812,9 @@ display.display(display.HTML('Image cc-by: <a "href=https://commons.wikimedia.or
 \end{lstlisting}
 \begin{figure}[H]
 \centering
-\includegraphics[width=.8\linewidth]{apendices/fig/13_IAA012_11.png}
 \caption{Imagem escolhida - Deepdream}
+\includegraphics[width=.8\linewidth]{apendices/fig/13_IAA012_11.png}
+\caption*{Fonte: O autor (2024).}
 \end{figure}
 \subsubsection*{Preparar o modelo de extração de recursos}
 Aqui faremos o download um modelo de classificação de imagem pré-treinado. Usaremos o InceptionV3 que é semelhante ao modelo originalmente usado no DeepDream. Observe que qualquer modelo pré-treinado funcionará, embora você precise ajustar os nomes das camadas abaixo, caso deseje alterá-lo.
@@ -916,8 +927,9 @@ dream_img = run_deep_dream_simple(img=original_img,
 \end{lstlisting}
 \begin{figure}[H]
 \centering
-\includegraphics[width=.8\linewidth]{apendices/fig/13_IAA012_12.png}
 \caption{Imagem escolhida - Ciclo principal - Deepdream}
+\includegraphics[width=.8\linewidth]{apendices/fig/13_IAA012_12.png}
+\caption*{Fonte: O autor (2024).}
 \end{figure}
 Explicação: Imagem gerada durante o ciclo principal do algoritmo DeepDream, que aplica convoluções repetidas vezes para amplificar padrões reconhecidos pela rede neural, em áreas específicas da imagem, gerando texturas e formas psicodélicas, parecidas de um "sonho". Aqui ainda no Main Loop, já é observado um efeito inicial onde partes do gato mostram características "oníricas", mas ainda mantendo a estrutura básica do animal e do fundo da imagem.
 \subsubsection*{Levando o modelo até um oitava}
@@ -955,8 +967,9 @@ end-start
 \end{lstlisting}
 \begin{figure}[H]
 \centering
-\includegraphics[width=.8\linewidth]{apendices/fig/13_IAA012_13.png}
 \caption{Imagem escolhida - Elevado oitava - Deepdream}
+\includegraphics[width=.8\linewidth]{apendices/fig/13_IAA012_13.png}
+\caption*{Fonte: O autor (2024).}
 \end{figure}
 Explicação: Aqui onde o modelo é elevado uma oitava a imagem gerada mostra uma intensificação maior dos detalhes oníricos. A imagem do gato começa a perder destaque para o fundo que ganha o destaque com maior preenchimento de padrões e texturas.
 

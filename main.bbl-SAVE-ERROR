@@ -181,6 +181,59 @@
       \field{title}{1 em 3 profissionais no mundo usa ChatGPT no trabalho, aponta pesquisa}
       \field{year}{2024}
     \endentry
+    \entry{mcafee2012big}{article}{}{1}
+      \name{author}{5}{}{%
+        {{hash=00c50c0a44597347642883ea39a79e19}{%
+           family={McAfee},
+           familyi={M\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod}}}%
+        {{hash=7bd9f54569cb8c0301da00ed49b5a752}{%
+           family={Brynjolfsson},
+           familyi={B\bibinitperiod},
+           given={Erik},
+           giveni={E\bibinitperiod}}}%
+        {{hash=418715aadaf08f606ff3e5575fa44f4f}{%
+           family={Davenport},
+           familyi={D\bibinitperiod},
+           given={Thomas\bibnamedelima H},
+           giveni={T\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=2aaeb0156b84046883ca145bd8f4628a}{%
+           family={Patil},
+           familyi={P\bibinitperiod},
+           given={DJ},
+           giveni={D\bibinitperiod}}}%
+        {{hash=d8be02529c8db40d73c60edc038b8f19}{%
+           family={Barton},
+           familyi={B\bibinitperiod},
+           given={Dominic},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge}%
+      }
+      \strng{namehash}{1b4fb930e8d5ba863f033ab3a1e9e1ce}
+      \strng{fullhash}{254844f44cebc9ed4cc4a977722747cd}
+      \strng{fullhashraw}{254844f44cebc9ed4cc4a977722747cd}
+      \strng{bibnamehash}{254844f44cebc9ed4cc4a977722747cd}
+      \strng{authorbibnamehash}{254844f44cebc9ed4cc4a977722747cd}
+      \strng{authornamehash}{1b4fb930e8d5ba863f033ab3a1e9e1ce}
+      \strng{authorfullhash}{254844f44cebc9ed4cc4a977722747cd}
+      \strng{authorfullhashraw}{254844f44cebc9ed4cc4a977722747cd}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Harvard business review}
+      \field{number}{10}
+      \field{title}{Big data: the management revolution}
+      \field{volume}{90}
+      \field{year}{2012}
+      \field{pages}{60\bibrangedash 68}
+      \range{pages}{9}
+    \endentry
     \entry{MIT}{misc}{}{1}
       \name{author}{1}{}{%
         {{hash=7abc1a233092fc104c7af72a89c0829c}{%

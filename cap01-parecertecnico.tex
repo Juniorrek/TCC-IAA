@@ -1,31 +1,34 @@
 \chapter{Parecer Técnico} \label{cha:parecertecnico}
 
 %%% Intro IA 
-A inteligência sempre foi a característica mais notável do ser humano. Desde os primórdios, buscamos compreender como o nosso cérebro é capaz de perceber, aprender, raciocinar e agir, tudo isso em um mundo complexo e repleto de estimulos e eventos dos mais diversos tipos. O campo da Inteligência Artificial (IA) surge nessa mesma vertente. %TODO: aumentar explicacao antes do breve contraponto em seguida
-Entretanto, segundo \textcite{russell2022}, a área de estudo da IA vai além, e procura não apenas entender, mas também construir entidades inteligentes, capazes de realizar tarefas que normalmente exigem a inteligência humana.
+A inteligência sempre foi a característica mais notável do ser humano. Desde os primórdios, buscamos compreender como o nosso cérebro é capaz de perceber, aprender, raciocinar e agir em um mundo complexo e repleto de estímulos. Essa curiosidade levou cientistas e filósofos a tentarem reproduzir artificialmente aspectos do pensamento humano, primeiro em teorias e depois em máquinas capazes de simular comportamentos inteligentes. Com o avanço da computação e da matemática essas ideias deram origem ao campo da Inteligência Artificial (IA). Segundo \textcite{russell2022}, o campo da IA ainda vai além de somente compreender a inteligência, mas também busca construir entidades inteligentes, capazes de realizar tarefas que normalmente exigem discernimento humano.
 
-A IA abrange algumas subáreas como reconhecimento de padrões, tomada de decisão, raciocínio lógico e aprendizado a partir de dados. Desde então evoluiu de abordagens baseadas em regras fixas para métodos mais sofisticados de aprendizado de máquina e aprendizado profundo (Deep Learning), possibilitando o surgimento de aplicações em diferentes setores, como saúde, indústria, entretenimento e comunicação \cite{nilsson2010quest}.
-
-%%CITANDO SUBAREAS 2X, COLOCAR SÓ EM 1 PARAGRAFO, NEM QUE SEPARE GRANDES AREAS E AREAS ESPECIFICAS...
+Gradualmente a IA evoluiu de sistemas baseados em regras fixas, nos quais as decisões eram determinadas por conjuntos explícitos de instruções programadas, para abordagens mais complexas de aprendizado de máquina (Machine Learning - ML), e aprendizado profundo (Deep Learning - DL). Essa evolução possibilitou o avanço de aplicações em diversas áreas distintas como saúde, indústria, entretenimento e comunicação \cite{nilsson2010quest}.
 
 %%% Subareas IA
-Cada diferente subárea é  voltada a um tipo específico de desafio. Entre elas, pode-se destacar a visão computacional, que permite o reconhecimento e interpretação de imagens; o reconhecimento de fala, que transforma áudio em texto; os sistemas especialistas, que simulam a tomada de decisão em domínios específicos; e a robótica inteligente, que combina sensores, planejamento e ação em ambientes físicos.
+Cada subárea da IA se dedica a um tipo específico de desafio relacionado à reprodução da inteligência humana. Entre as principais, destacam-se o ML, que permite aos sistemas identificar padrões e melhorar seu desempenho a partir de dados; o DL, baseado em redes neurais com múltiplas camadas, capaz de reconhecer imagens, sons e textos; e a visão computacional, responsável por interpretar e compreender imagens e vídeos.
+Outras subáreas relevantes incluem o reconhecimento de fala, que converte áudio em texto e dá suporte a assistentes virtuais; sistemas especialistas, projetados para apoiar a tomada de decisão em domínios específicos; o planejamento automatizado, que define sequências de ações para atingir objetivos; e a robótica inteligente, que combina percepção através de sensores, planejamento e ação em ambientes físicos.
+Também há o Processamento de Linguagem Natural (Natural Language Processing - NLP), foco do presente parecer técnico, que se destaca como o campo voltado a ensinar máquinas a compreender e produzir linguagem humana \cite{russell2022}.
 
 %%% NLP IA
-
-Dentro desse conjunto, destaca-se o Processamento de Linguagem Natural (NLP - Natural Language Processing), responsável por ensinar máquinas a compreender, interpretar e produzir linguagem humana. Essa tarefa é desafiadora, pois a linguagem é complexa, ambígua e profundamente dependente de contexto cultural e situacional. Computadores conseguem interpretar facilmente linguagens estruturadas, como linguagens de programação, mas não entendem diretamente a linguagem natural, que exige interpretação e contexto \cite{russell2022}.
+A subárea da NLP se destaca por tentar ensinar máquinas a compreender, interpretar e produzir linguagem humana. Essa tarefa é desafiadora, pois a linguagem é ambígua, contextual e profundamente dependente de contexto cultural e situacional. Computadores lidam facilmente com linguagens estruturadas, como as de programação, mas têm dificuldade em compreender a linguagem natural, que depende de significados e intenções humanas.
 
 %%% Exemplo NLP 
-Por exemplo, um navegador pode executar corretamente um código em JavaScript que define que, ao rolar a página, seja exibido um alerta na tela:
+Por exemplo, note como um computador pode compreender e executar com precisão um código em Python, no qual as condições e ações estão claramente definidas:
 \begin{lstlisting}[language=Python, style=input]
 # Código que o computador entende
-temperatura = 30
+dumbledore_tem_telescopio = True
+homem_tem_telescopio = False
 
-if temperatura > 25:
-    print("A temperatura está alta!")
+if dumbledore_tem_telescopio:
+    print("Dumbledore usou o telescópio para observar o homem.")
+elif homem_tem_telescopio:
+    print("Dumbledore viu o homem que estava com o telescópio.")
+else:
+    print("Não há telescópio envolvido na observação.")
 \end{lstlisting}
 
-\noindent Por outro lado, uma instrução equivalente em linguagem natural:
+\noindent Já uma instrução equivalente em linguagem natural, no caso, em português:
 \begin{tcolorbox}[
   colback=yellow!20, 
   colframe=black,
@@ -34,30 +37,61 @@ if temperatura > 25:
   boxsep=2mm,
   enlarge left by=0.1\linewidth  % desloca o box inteiro para direita
 ]
-Se a temperatura estiver acima de 25 graus, avise que a temperatura está alta.
+Se Dumbledore viu o homem com o telescópio, mostre uma mensagem adequada descrevendo a situação.
 \end{tcolorbox}
-Tal instrução não pode ser interpretada diretamente pela máquina, justamente porque o texto humano é ambíguo e depende de contexto. 
-O NLP surge para reduzir essa lacuna, permitindo que computadores sejam capazes de interpretar comandos e informações expressos em linguagem natural, ampliando a interação entre humanos e sistemas computacionais.
+Nessa frase, não está claro quem possui o telescópio, Dumbledore ou o homem observado, pois a linguagem natural é ambígua e dependente de contexto. Essa ambiguidade é natural para os humanos, que usam o contexto para entender o sentido, mas é um desafio para os computadores.
+Enquanto o código define explicitamente cada condição para que a máquina execute a ação correta, a linguagem humana exige interpretação e inferência, habilidades que os computadores não possuem de forma nativa.
+O NLP surge exatamente para reduzir essa lacuna, permitindo que sistemas computacionais compreendam e produzam linguagem humana de maneira mais contextualizada e natural, ampliando a interação entre pessoas e máquinas.
 
 %%% Linguistica NLP
-
-Um dos maiores desafios atacados pela NLP é a ambiguidade linguística. A linguagem humana raramente possui um único significado literal; palavras e frases podem assumir sentidos diferentes dependendo do contexto. Por exemplo, a sentença em inglês “I saw the man with the telescope”, quem tem o telescópio, o sujeito da oração ou o homem? Essa multiplicidade de interpretações demonstra como a compreensão automática requer não apenas reconhecer palavras, mas também processá-las com base em contexto sintático, semântico e pragmático. Portanto, o NLP não se resume a um simples processamento de texto, mas a um esforço para modelar matematicamente a própria complexidade da linguagem \cite{jurafsky2023speech}.
+Um dos maiores desafios do NLP é lidar com a ambiguidade linguística. A linguagem humana raramente tem um único significado literal, palavras e frases podem variar de sentido conforme o contexto. A ambiguidade mostra que compreender linguagem natural exige mais do que reconhecer palavras, é preciso entender estrutura sintática, significado semântico e contexto pragmático \cite{jurafsky2023speech}.
+Assim, o NLP não é apenas um processamento de texto, mas uma tentativa de modelar matematicamente a própria complexidade da linguagem.
 
 %%% Tradução idiomas NLP
+Uma das aplicações mais antigas do NLP é a tradução entre linguas, cuja evolução demonstra claramente a importância do contexto linguístico. Conforme \textcite{hutchins2005history}, os primeiros tradutores criados nas décadas de 1950 e 1960 usavam regras gramaticais rígidas, gerando traduções literais e muitas vezes incorretas.
+Com o avanço dos métodos estatísticos e das redes neurais, as traduções passaram a considerar o contexto e os padrões linguísticos aprendidos em grandes volumes de dados.
+Em vez de traduzir palavra por palavra, os sistemas modernos, como o Google Translate e o DeepL, analisam frases completas e o sentido geral, levando em conta o significado geral e a probabilidade de combinações linguísticas, produzindo traduções mais naturais e próximas da linguagem humana.
 
-Outra aplicação da NLP é a tradução entre linguas, cuja evolução demonstra claramente a importância do contexto linguístico. Segundo \textcite{hutchins2005history}, os primeiros tradutores automáticos, desenvolvidos nas décadas de 1950 e 1960, utilizavam abordagens baseadas em regras gramaticais rígidas, resultando em traduções literais que muitas vezes ignoravam expressões idiomáticas e nuances culturais.
-
-Com o avanço dos métodos estatísticos e, mais recentemente, das redes neurais, as traduções passaram a considerar padrões contextuais linguísticos aprendidos a partir de grandes volumes de dados. Em vez de traduzir palavra por palavra, os sistemas modernos analisam frases inteiras, levando em conta o significado geral e a probabilidade de combinações linguísticas. Essa abordagem, conhecida como tradução neural, revolucionou ferramentas amplamente utilizadas, como o Google Translate e o DeepL, tornando a tradução automática muito mais natural e próxima da interpretação humana.
 
 %%% LLMS NLP
+Outra aplicação da NLP popularmente conhecida ultimamente são os chamados Modelos de Linguagem de Grande Escala (Large Language Models - LLMs), como o ChatGPT. Tais modelos são capazes de compreender e gerar texto de forma coerente, criando respostas contextualizadas, resumos, traduções e até textos criativos. O funcionamento das LLMs baseia-se em arquiteturas de redes DL, especialmente na arquitetura  \textit{transformer}, introduzida por \textcite{vaswani2017attention}, que permite analisar várias palavras ao mesmo tempo e entender relações de longo alcance dentro de um texto.
 
-Outra aplicação da NLP popularmente conhecida ultimamente são os chamados Modelos de Linguagem de Grande Escala (LLMs - Large Language Models), como o ChatGPT. Tais modelos são capazes de compreender e gerar texto de forma coerente, criando respostas contextualizadas, resumos, traduções e até textos criativos. O funcionamento das LLMs baseia-se em arquiteturas de redes neurais profundas, especialmente os \textit{transformers}, introduzidos por \textcite{\cite{vaswani2017attention}, que revolucionaram o campo ao permitir o processamento paralelo de sequências de palavras e a captura de relações de longo alcance no texto.
-
-O impacto dos LLMs transcende o campo técnico: eles transformaram a forma como interagimos com a tecnologia, permitindo a comunicação natural entre humanos e máquinas. Hoje, sistemas baseados em NLP são empregados em assistentes virtuais, ferramentas de revisão gramatical, análise de sentimentos, geração de conteúdo e ensino de idiomas, demonstrando o potencial da IA em compreender e reproduzir aspectos cada vez mais complexos da linguagem humana.
+Os impactos das LLMs vai além da tecnologia, eles transformaram a forma como interagimos com a tecnologia, permitindo a comunicação natural entre humanos e máquinas. Sistemas baseados em NLP são empregados em assistentes virtuais, ferramentas de revisão gramatical, análise de sentimentos, geração de conteúdo e ensino de idiomas, demonstrando o potencial da IA em compreender e reproduzir aspectos cada vez mais complexos da linguagem humana.
 
 
-% \begin{venndiagram3sets}[labelOnlyA=IA,
-%     labelOnlyB=Machine Learning,
-%     labelOnlyC=Data Science,
-%     labelABC={Deep Learning, NLP, LLMs}]
-% \end{venndiagram3sets}
+\begin{figure}[H]
+\centering
+\caption{Inter-relações entre os subcampos da Inteligência Artificial e Linguística}
+\begin{tikzpicture}[scale=1.0, every node/.style={align=center, font=\small}]
+
+% --- Linguística ---
+\filldraw[fill=cyan!20, fill opacity=0.3, draw=cyan!70, thick] (5,-0.5) circle (3cm);
+\node at (6.2,-0.5) {\large \textbf{Linguística}};
+
+% --- Inteligência Artificial ---
+\filldraw[fill=blue!20, fill opacity=0.3, draw=blue!70, thick] (0,0) circle (4cm);
+\node at (0,3.5) {\Large \textbf{IA}};
+
+% --- Machine Learning ---
+\filldraw[fill=green!20, fill opacity=0.4, draw=green!70, thick] (0,-0.5) circle (2.8cm);
+\node at (0,1.8) {\textbf{ML}};
+
+% --- Deep Learning ---
+\filldraw[fill=yellow!40, fill opacity=0.5, draw=yellow!80!black, thick] (0,-1.2) circle (1.6cm);
+\node at (0,-1.2) {\textbf{DL}};
+
+% --- NLP ---
+\filldraw[fill=red!30, fill opacity=0.4, draw=red!70!black, thick] (2.5,-0.5) circle (2.2cm);
+\node at (3.0,-0.5) {\textbf{NLP}};
+
+% --- LLM ---
+\filldraw[fill=orange!40, fill opacity=0.6, draw=orange!80!black, thick] (1.5,-1.0) circle (1.0cm);
+\node at (1.5,-1.0) {\textbf{LLMs}};
+
+\end{tikzpicture}\caption*{Fonte: O autor (2025).}
+\label{fig:vennIA}
+\end{figure}
+
+A Figura~\ref{fig:vennIA} ilustra a relação entre os principais campos da IA aplicados a NLP e suas interconexões com a Linguística. Vale destacar que, se o foco do presente parecer fosse outra subárea da IA, como visão computacional ou robótica, a figura apresentaria uma estrutura diferente, refletindo outras intersecções entre campos de estudo.
+
+A IA constitui o campo mais abrangente, englobando diversas abordagens voltadas à construção de sistemas inteligentes. Dentro dela, o ML representa uma subárea que permite às máquinas aprenderem a partir de dados, enquanto o DL surge como uma vertente mais específica, baseada em redes neurais com múltiplas camadas. O NLP aparece como uma área de interseção entre a IA e a Linguística, pois combina técnicas computacionais e conhecimento linguístico para interpretar e gerar linguagem humana. Por fim, as LLMs representam um avanço recente e significativo dentro desse contexto, pois aplicam algoritmos de aprendizado profundo em larga escala para compreender e produzir texto com alto grau de coerência. Dessa forma, a figura sintetiza como essas áreas e subáreas se sobrepõem e se complementam, refletindo a natureza interdisciplinar e dinâmica da inteligência artificial moderna.

@@ -19,39 +19,6 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global/global}
-    \entry{abntex2modelo}{manual}{}{1}
-      \name{author}{1}{}{%
-        {{hash=6fa62a294465a5cdf66e7bb4668d0d61}{%
-           family={ABNTeX2},
-           familyi={A\bibinitperiod}}}%
-      }
-      \list{organization}{1}{%
-        {Equipe abnTeX2}%
-      }
-      \strng{namehash}{6fa62a294465a5cdf66e7bb4668d0d61}
-      \strng{fullhash}{6fa62a294465a5cdf66e7bb4668d0d61}
-      \strng{fullhashraw}{6fa62a294465a5cdf66e7bb4668d0d61}
-      \strng{bibnamehash}{6fa62a294465a5cdf66e7bb4668d0d61}
-      \strng{authorbibnamehash}{6fa62a294465a5cdf66e7bb4668d0d61}
-      \strng{authornamehash}{6fa62a294465a5cdf66e7bb4668d0d61}
-      \strng{authorfullhash}{6fa62a294465a5cdf66e7bb4668d0d61}
-      \strng{authorfullhashraw}{6fa62a294465a5cdf66e7bb4668d0d61}
-      \field{sortinit}{A}
-      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{annotation}{Este documento é derivado do \cite{abnt-bibtex-doc}}
-      \field{title}{Modelo Canônico de Trabalho Acadêmico com abnTeX2}
-      \field{year}{2013}
-      \verb{urlraw}
-      \verb http://abntex2.googlecode.com/
-      \endverb
-      \verb{url}
-      \verb http://abntex2.googlecode.com/
-      \endverb
-    \endentry
     \entry{cassol2023}{misc}{}{1}
       \name{author}{1}{}{%
         {{hash=06a551b8b8628676497d6b5c529b494b}{%
@@ -104,6 +71,32 @@
       \field{title}{EU AI Act: first regulation on artificial intelligence}
       \field{year}{2023}
     \endentry
+    \entry{hutchins2005history}{article}{}{1}
+      \name{author}{1}{}{%
+        {{hash=64553eb2e03d0f5b2eb2f50cb3d4e965}{%
+           family={Hutchins},
+           familyi={H\bibinitperiod},
+           given={W.\bibnamedelimi John},
+           giveni={W\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{64553eb2e03d0f5b2eb2f50cb3d4e965}
+      \strng{fullhash}{64553eb2e03d0f5b2eb2f50cb3d4e965}
+      \strng{fullhashraw}{64553eb2e03d0f5b2eb2f50cb3d4e965}
+      \strng{bibnamehash}{64553eb2e03d0f5b2eb2f50cb3d4e965}
+      \strng{authorbibnamehash}{64553eb2e03d0f5b2eb2f50cb3d4e965}
+      \strng{authornamehash}{64553eb2e03d0f5b2eb2f50cb3d4e965}
+      \strng{authorfullhash}{64553eb2e03d0f5b2eb2f50cb3d4e965}
+      \strng{authorfullhashraw}{64553eb2e03d0f5b2eb2f50cb3d4e965}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Language and Translation}
+      \field{title}{The history of machine translation in a nutshell}
+      \field{year}{2005}
+    \endentry
     \entry{ibm2023}{misc}{}{1}
       \name{author}{1}{}{%
         {{hash=cbf44511d041dc6d1dd73cc0c033122c}{%
@@ -128,6 +121,46 @@
       \field{note}{Accessed: 29/06/2024}
       \field{title}{O que é viés de IA?}
       \field{year}{2023}
+    \endentry
+    \entry{jurafsky2023speech}{book}{}{1}
+      \name{author}{2}{}{%
+        {{hash=bd33d7a70284b5ead9c7985cb5c9929c}{%
+           family={Jurafsky},
+           familyi={J\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+        {{hash=9ed8bee488b2703da341cded66bf83cb}{%
+           family={Martin},
+           familyi={M\bibinitperiod},
+           given={James\bibnamedelima H.},
+           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Pearson}%
+      }
+      \strng{namehash}{b5e6a2accdc2023c51f42c6ec010d19b}
+      \strng{fullhash}{b5e6a2accdc2023c51f42c6ec010d19b}
+      \strng{fullhashraw}{b5e6a2accdc2023c51f42c6ec010d19b}
+      \strng{bibnamehash}{b5e6a2accdc2023c51f42c6ec010d19b}
+      \strng{authorbibnamehash}{b5e6a2accdc2023c51f42c6ec010d19b}
+      \strng{authornamehash}{b5e6a2accdc2023c51f42c6ec010d19b}
+      \strng{authorfullhash}{b5e6a2accdc2023c51f42c6ec010d19b}
+      \strng{authorfullhashraw}{b5e6a2accdc2023c51f42c6ec010d19b}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3rd Edition (draft)}
+      \field{title}{Speech and Language Processing}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://web.stanford.edu/~jurafsky/slp3/
+      \endverb
+      \verb{url}
+      \verb https://web.stanford.edu/~jurafsky/slp3/
+      \endverb
     \endentry
     \entry{kpmg2024}{misc}{}{1}
       \name{author}{1}{}{%
@@ -259,6 +292,44 @@
       \field{title}{How ChatGPT Works: A Non-Technical Primer}
       \field{year}{2023}
     \endentry
+    \entry{nilsson2010quest}{book}{}{1}
+      \name{author}{1}{}{%
+        {{hash=91c95ed3e3f572f27346b1131492bb8b}{%
+           family={Nilsson},
+           familyi={N\bibinitperiod},
+           given={Nils\bibnamedelima J.},
+           giveni={N\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{91c95ed3e3f572f27346b1131492bb8b}
+      \strng{fullhash}{91c95ed3e3f572f27346b1131492bb8b}
+      \strng{fullhashraw}{91c95ed3e3f572f27346b1131492bb8b}
+      \strng{bibnamehash}{91c95ed3e3f572f27346b1131492bb8b}
+      \strng{authorbibnamehash}{91c95ed3e3f572f27346b1131492bb8b}
+      \strng{authornamehash}{91c95ed3e3f572f27346b1131492bb8b}
+      \strng{authorfullhash}{91c95ed3e3f572f27346b1131492bb8b}
+      \strng{authorfullhashraw}{91c95ed3e3f572f27346b1131492bb8b}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Web version available at \url{http://ai.stanford.edu/~nilsson/}}
+      \field{title}{The Quest for Artificial Intelligence: A History of Ideas and Achievements}
+      \field{year}{2010}
+      \verb{urlraw}
+      \verb http://www.cambridge.org/us/0521122937
+      \endverb
+      \verb{url}
+      \verb http://www.cambridge.org/us/0521122937
+      \endverb
+    \endentry
     \entry{OpenAI}{misc}{}{2}
       \name{author}{1}{}{%
         {{hash=0523b13262b12c215d8009938f5c14f1}{%
@@ -338,6 +409,56 @@
       \field{title}{How ChatGPT Works: The Model Behind The Bot}
       \field{year}{2023}
     \endentry
+    \entry{russell2022}{book}{}{3}
+      \name{author}{2}{}{%
+        {{hash=18ee0a7bfc995f40254c9d425c977a49}{%
+           family={Russell},
+           familyi={R\bibinitperiod},
+           given={Stuart\bibnamedelima J.},
+           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=5de798d5fa3c0236c0478134cd23f52a}{%
+           family={Norvig},
+           familyi={N\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+      }
+      \name{translator}{1}{}{%
+        {{hash=2f61cfd91bb638c1f643e6902c7da08b}{%
+           family={Simille},
+           familyi={S\bibinitperiod},
+           given={Regina\bibnamedelima Célia},
+           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Rio de Janeiro}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier Editora Ltda.}%
+      }
+      \strng{namehash}{a4f50258a14156905c8d2b1b4704be30}
+      \strng{fullhash}{a4f50258a14156905c8d2b1b4704be30}
+      \strng{fullhashraw}{a4f50258a14156905c8d2b1b4704be30}
+      \strng{bibnamehash}{a4f50258a14156905c8d2b1b4704be30}
+      \strng{authorbibnamehash}{a4f50258a14156905c8d2b1b4704be30}
+      \strng{authornamehash}{a4f50258a14156905c8d2b1b4704be30}
+      \strng{authorfullhash}{a4f50258a14156905c8d2b1b4704be30}
+      \strng{authorfullhashraw}{a4f50258a14156905c8d2b1b4704be30}
+      \strng{translatorbibnamehash}{2f61cfd91bb638c1f643e6902c7da08b}
+      \strng{translatornamehash}{2f61cfd91bb638c1f643e6902c7da08b}
+      \strng{translatorfullhash}{2f61cfd91bb638c1f643e6902c7da08b}
+      \strng{translatorfullhashraw}{2f61cfd91bb638c1f643e6902c7da08b}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{isbn}{978-85-352-3701-6}
+      \field{note}{Tradução autorizada do original \textit{Artificial Intelligence: A Modern Approach}, 3rd ed., Pearson Education, 2010}
+      \field{title}{Inteligência Artificial}
+      \field{year}{2013}
+    \endentry
     \entry{sutto2023}{misc}{}{1}
       \name{author}{1}{}{%
         {{hash=4d8bf81b01a99ade0dcbc13376b11c80}{%
@@ -391,6 +512,34 @@
       \field{note}{Accessed: 24/06/2024}
       \field{title}{O que é ChatGPT e por que alguns o veem como ameaça}
       \field{year}{2023}
+    \endentry
+    \entry{vaswani2017attention}{inproceedings}{}{1}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=7f28e84700536646dd6620a0db07ad09}{%
+           family={Vaswani},
+           familyi={V\bibinitperiod},
+           given={Ashish},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{ee273ab30cfb889666f8c4d806eb9ce7}
+      \strng{fullhash}{ee273ab30cfb889666f8c4d806eb9ce7}
+      \strng{fullhashraw}{ee273ab30cfb889666f8c4d806eb9ce7}
+      \strng{bibnamehash}{ee273ab30cfb889666f8c4d806eb9ce7}
+      \strng{authorbibnamehash}{ee273ab30cfb889666f8c4d806eb9ce7}
+      \strng{authornamehash}{ee273ab30cfb889666f8c4d806eb9ce7}
+      \strng{authorfullhash}{ee273ab30cfb889666f8c4d806eb9ce7}
+      \strng{authorfullhashraw}{ee273ab30cfb889666f8c4d806eb9ce7}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Advances in Neural Information Processing Systems}
+      \field{title}{Attention is all you need}
+      \field{year}{2017}
     \endentry
   \enddatalist
 \endrefsection

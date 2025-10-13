@@ -41,7 +41,7 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://www.ifsc.edu.br/web/ifsc-verifica/w/quais-os-impactos-do-chatgpt-e-da-inteligencia-artificial-na-educacao}}
+      \field{howpublished}{https://www.ifsc.edu.br/web/ifsc-verifica/w/quais-os-impactos-do-chatgpt-e-da-inteligencia-artificial-na-educacao}
       \field{note}{Accessed: 26/06/2024}
       \field{title}{Quais os impactos do ChatGPT e da Inteligência Artificial na Educação?}
       \field{year}{2023}
@@ -66,7 +66,7 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://www.europarl.europa.eu/thinktank/en/document/EPRS_BRI(2021)698792}}
+      \field{howpublished}{https://www.europarl.europa.eu/thinktank/en/document/EPRS_BRI(2021)698792}
       \field{note}{Accessed: 29/07/2024}
       \field{title}{EU AI Act: first regulation on artificial intelligence}
       \field{year}{2023}
@@ -117,7 +117,7 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://www.ibm.com/br-pt/topics/ai-bias}}
+      \field{howpublished}{https://www.ibm.com/br-pt/topics/ai-bias}
       \field{note}{Accessed: 29/06/2024}
       \field{title}{O que é viés de IA?}
       \field{year}{2023}
@@ -182,7 +182,7 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://kpmg.com/br/pt/home/insights/2023/12/desafio-privacidade-mundo-crescente-uso-ia.html}}
+      \field{howpublished}{https://kpmg.com/br/pt/home/insights/2023/12/desafio-privacidade-mundo-crescente-uso-ia.html}
       \field{note}{Accessed: 29/07/2024}
       \field{title}{O desafio da privacidade em um mundo com crescente uso de IA}
       \field{year}{2024}
@@ -209,7 +209,7 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://exame.com/inteligencia-artificial/1-em-cada-3-profissionais-no-mundo-usa-chatgpt-no-trabalho-aponta-pesquisa/}}
+      \field{howpublished}{https://exame.com/inteligencia-artificial/1-em-cada-3-profissionais-no-mundo-usa-chatgpt-no-trabalho-aponta-pesquisa/}
       \field{note}{Accessed: 30/06/2024}
       \field{title}{1 em 3 profissionais no mundo usa ChatGPT no trabalho, aponta pesquisa}
       \field{year}{2024}
@@ -287,7 +287,7 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://mitsloanedtech.mit.edu/ai/basics/how-chatgpt-works-a-non-technical-primer/}}
+      \field{howpublished}{https://mitsloanedtech.mit.edu/ai/basics/how-chatgpt-works-a-non-technical-primer/}
       \field{note}{Accessed: 25/02/2024}
       \field{title}{How ChatGPT Works: A Non-Technical Primer}
       \field{year}{2023}
@@ -320,7 +320,7 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{Web version available at \url{http://ai.stanford.edu/~nilsson/}}
+      \field{note}{Web version available at http://ai.stanford.edu/~nilsson/}
       \field{title}{The Quest for Artificial Intelligence: A History of Ideas and Achievements}
       \field{year}{2010}
       \verb{urlraw}
@@ -350,7 +350,7 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://help.openai.com/en/articles/6783457-what-is-chatgpt}}
+      \field{howpublished}{https://help.openai.com/en/articles/6783457-what-is-chatgpt}
       \field{note}{Accessed: 25/02/2024}
       \field{title}{What is ChatGPT?}
       \field{year}{2024}
@@ -377,7 +377,7 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://g1.globo.com/pop-arte/noticia/2023/04/11/chatgpt-e-direito-autoral-entenda-a-treta-juridica-que-ronda-a-relacao-entre-inteligencia-artificial-e-arte.ghtml}}
+      \field{howpublished}{https://g1.globo.com/pop-arte/noticia/2023/04/11/chatgpt-e-direito-autoral-entenda-a-treta-juridica-que-ronda-a-relacao-entre-inteligencia-artificial-e-arte.ghtml}
       \field{note}{Accessed: 23/06/2024}
       \field{title}{ChatGPT e direito autoral: Entenda a treta jurídica que ronda a relação entre inteligência artificial e arte}
       \field{year}{2023}
@@ -404,12 +404,12 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://towardsdatascience.com/how-chatgpt-works-the-models-behind-the-bot-1ce5fca96286}}
+      \field{howpublished}{https://towardsdatascience.com/how-chatgpt-works-the-models-behind-the-bot-1ce5fca96286}
       \field{note}{Accessed: 25/02/2024}
       \field{title}{How ChatGPT Works: The Model Behind The Bot}
       \field{year}{2023}
     \endentry
-    \entry{russell2022}{book}{}{3}
+    \entry{russell2022}{book}{}{2}
       \name{author}{2}{}{%
         {{hash=18ee0a7bfc995f40254c9d425c977a49}{%
            family={Russell},
@@ -481,7 +481,7 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://www.infomoney.com.br/carreira/chatgpt-e-vilao-ou-oportunidade-no-mundo-do-trabalho/}}
+      \field{howpublished}{https://www.infomoney.com.br/carreira/chatgpt-e-vilao-ou-oportunidade-no-mundo-do-trabalho/}
       \field{note}{Accessed: 31/06/2024}
       \field{title}{ChatGPT é vilão ou oportunidade no mundo do trabalho?}
       \field{year}{2023}
@@ -508,7 +508,7 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://www.bbc.com/portuguese/geral-64297796}}
+      \field{howpublished}{https://www.bbc.com/portuguese/geral-64297796}
       \field{note}{Accessed: 24/06/2024}
       \field{title}{O que é ChatGPT e por que alguns o veem como ameaça}
       \field{year}{2023}

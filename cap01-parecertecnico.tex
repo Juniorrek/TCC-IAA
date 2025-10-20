@@ -15,7 +15,11 @@ Também há o Processamento de Linguagem Natural (\textit{Natural Language Proce
 A subárea da NLP se destaca por tentar ensinar máquinas a compreender, interpretar e produzir linguagem humana. Essa tarefa é desafiadora, pois a linguagem é ambígua, contextual e profundamente dependente de contexto cultural e situacional. Computadores lidam facilmente com linguagens estruturadas, como as de programação, mas têm dificuldade em compreender a linguagem natural, que depende de significados e intenções humanas.
 
 %%% Exemplo NLP 
-Por exemplo, note como um computador pode compreender e executar com precisão um código em Python, no qual as condições e ações estão claramente definidas:
+Por exemplo, note como um computador pode compreender e executar com precisão um código em Python, no qual as condições e ações estão claramente definidas, conforme o Algoritmo~\ref{alg:dumbledore}.
+\begin{algorithm}[H]
+\centering
+\caption{Instrução literal em código Python}
+\vspace{0.5em}
 \begin{lstlisting}[language=Python, style=input]
 # Código que o computador entende
 dumbledore_tem_telescopio = True
@@ -28,18 +32,28 @@ elif homem_tem_telescopio:
 else:
     print("Não há telescópio envolvido na observação.")
 \end{lstlisting}
+\caption*{Fonte: O autor (2025).}
+\label{alg:dumbledore}
+\end{algorithm}
 
-\noindent Já uma instrução equivalente em linguagem natural, no caso, em português:
+Já uma instrução equivalente em linguagem natural, no caso em português, conforme o Quadro~\ref{quadroo:ambiguidade}.
+\begin{quadroo}[H]
+\centering
+\caption{Instrução ambígua em linguagem natural}
+\vspace{0.5em}
 \begin{tcolorbox}[
   colback=yellow!20, 
   colframe=black,
   width=0.8\linewidth,   % largura do box igual ao lstlisting
   left=0pt,               % remove deslocamento interno
   boxsep=2mm,
-  enlarge left by=0.1\linewidth  % desloca o box inteiro para direita
+  enlarge left by=-0.02\linewidth  % desloca o box inteiro para direita
 ]
 Se Dumbledore viu o homem com o telescópio, mostre uma mensagem adequada descrevendo a situação.
 \end{tcolorbox}
+\caption*{Fonte: O autor (2025).}
+\label{quadroo:ambiguidade}
+\end{quadroo}
 Nessa frase, não está claro quem possui o telescópio, Dumbledore ou o homem observado, pois a linguagem natural é ambígua e dependente de contexto. Essa ambiguidade é natural para os humanos, que usam o contexto para entender o sentido, mas é um desafio para os computadores.
 Enquanto o código define explicitamente cada condição para que a máquina execute a ação correta, a linguagem humana exige interpretação e inferência, habilidades que os computadores não possuem de forma nativa.
 O NLP surge exatamente para reduzir essa lacuna, permitindo que sistemas computacionais compreendam e produzam linguagem humana de maneira mais contextualizada e natural, ampliando a interação entre pessoas e máquinas.

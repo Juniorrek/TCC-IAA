@@ -42,6 +42,7 @@
 	 backrefpage  = {Citado \arabic{citecounter} vez na página},		% originally "cited on page"
 	 backrefpages = {Citado \arabic{citecounter} vezes nas páginas},	% originally "cited on pages"
 	 urlfrom      = {Dispon\'ivel em},
+   andothers = {\mkbibemph{et\addabbrvspace al\adddot}}
 }
 
 % Ajusta indentação de Referencias no ToC
@@ -225,3 +226,9 @@ ysep=0.2em,transform shape,line width=0.05em,top color=red,bottom color=red!50!b
 \usepackage{caption}
 
 \usepackage{venndiagram}
+
+\usepackage{newfloat}
+\DeclareFloatingEnvironment[fileext=alg, name=Algoritmo]{algorithm}
+\counterwithout{algorithm}{chapter}
+\DeclareFloatingEnvironment[fileext=quad, name=Quadro]{quadroo}
+\counterwithout{quadroo}{chapter}
